@@ -1,0 +1,1063 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>集芳阁云搜网站-资源检索与索引指南</title>
+<meta name="description" content="集芳阁云搜网站聚焦云盘资源检索与索引方法，整理频道分类、聚合搜索技巧、链接失效排查、版本对比与社区反馈，附带检索示例条目与使用问答，帮你在海量分享信息里快速定位可用文件。">
+<meta name="keywords" content="集芳阁云搜网站">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231f5d4a'/%3E%3Ccircle cx='14' cy='14' r='6.5' fill='none' stroke='%23f2d479' stroke-width='2.6'/%3E%3Cpath d='M19 19l6 6' stroke='%23f2d479' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#1d2422;
+  --ink-2:#3d4a45;
+  --muted:#63706a;
+  --line:#dfe5e1;
+  --line-2:#eef1ef;
+  --paper:#ffffff;
+  --paper-2:#f6f8f6;
+  --paper-3:#eef3ef;
+  --brand:#1f5d4a;
+  --brand-2:#2f7d64;
+  --brand-soft:#e3eee8;
+  --accent:#b9832a;
+  --accent-soft:#f8efdd;
+  --danger:#a1453a;
+  --radius:10px;
+  --radius-sm:6px;
+  --shadow:0 1px 2px rgba(29,36,34,.06),0 6px 18px rgba(29,36,34,.06);
+  --shadow-sm:0 1px 2px rgba(29,36,34,.08);
+  --space:clamp(14px,2.4vw,22px);
+  --maxw:1180px;
+  --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,sans-serif;
+  --serif:"Songti SC","Source Han Serif SC","Noto Serif CJK SC",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:132px}
+body{
+  margin:0;font-family:var(--sans);color:var(--ink);background:var(--paper-2);
+  font-size:16px;line-height:1.78;-webkit-text-size-adjust:100%;
+}
+h1,h2,h3,h4{margin:0;line-height:1.32;font-weight:700;letter-spacing:.01em}
+p{margin:0 0 .85em}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+ul,ol{margin:0 0 .9em;padding-left:1.35em}
+li{margin:0 0 .38em}
+img{max-width:100%;height:auto;display:block}
+button{font-family:inherit;font-size:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--space)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--brand);color:#fff;padding:10px 16px;z-index:200}
+.skip:focus{left:8px;top:8px}
+
+/* 吸顶公告 + 页头 */
+.sticky-top{position:sticky;top:0;z-index:100}
+.notice{
+  background:linear-gradient(90deg,#1f5d4a,#27695a 55%,#1c5343);
+  color:#eaf3ee;font-size:13.5px;letter-spacing:.01em;
+}
+.notice .wrap{display:flex;align-items:center;gap:10px;padding-top:8px;padding-bottom:8px;flex-wrap:wrap}
+.notice .tag{
+  background:var(--accent);color:#2a1e07;font-weight:700;font-size:12px;
+  border-radius:99px;padding:1px 9px;flex:none;
+}
+.notice a{color:#f6e2b6;text-decoration:underline;text-underline-offset:3px}
+.notice .sep{opacity:.45;flex:none}
+.site-head{
+  background:rgba(255,255,255,.96);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm);
+}
+.head-inner{display:flex;align-items:center;gap:18px;padding-top:10px;padding-bottom:10px}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.brand svg{display:block;flex:none}
+.brand-text{display:flex;flex-direction:column;line-height:1.15}
+.brand-name{font-weight:800;font-size:19px;color:var(--brand);letter-spacing:.02em}
+.brand-sub{font-size:11.5px;color:var(--muted);letter-spacing:.14em}
+.main-nav{margin-left:auto}
+.main-nav ul{display:flex;gap:2px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.main-nav a{
+  display:inline-block;padding:7px 11px;border-radius:99px;color:var(--ink-2);
+  font-size:14.5px;white-space:nowrap;
+}
+.main-nav a:hover{background:var(--brand-soft);text-decoration:none;color:var(--brand)}
+.main-nav a.active{background:var(--brand);color:#fff}
+.head-tools{display:flex;align-items:center;gap:10px;flex:none}
+.search{
+  display:flex;align-items:center;border:1px solid var(--line);border-radius:99px;
+  background:var(--paper-2);padding:3px 4px 3px 12px;min-width:210px;
+}
+.search input{
+  border:0;background:transparent;outline:none;font-size:14px;width:100%;
+  padding:5px 4px;color:var(--ink);font-family:inherit;
+}
+.search button{
+  border:0;background:var(--brand);color:#fff;border-radius:99px;
+  padding:6px 14px;font-size:13.5px;flex:none;
+}
+.search button:hover{background:var(--brand-2)}
+.menu-btn{
+  display:none;border:1px solid var(--line);background:var(--paper);
+  border-radius:var(--radius-sm);padding:7px 12px;font-size:14px;color:var(--ink);
+  align-items:center;gap:6px;
+}
+.menu-btn .bars{display:inline-block;width:14px;height:10px;position:relative}
+.menu-btn .bars::before,.menu-btn .bars::after{
+  content:"";position:absolute;left:0;width:14px;height:2px;background:var(--ink);border-radius:2px;
+}
+.menu-btn .bars::before{top:0}.menu-btn .bars::after{bottom:0}
+.search-msg{display:none;font-size:13px;color:var(--danger);padding:6px var(--space) 0}
+.search-msg.show{display:block}
+.search-msg .ok{color:var(--brand)}
+
+/* 首屏 */
+.hero{position:relative;background:linear-gradient(168deg,#f3f7f3 0%,#eaf1ec 46%,#f7f5ee 100%);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(20px,4vw,52px);align-items:center;padding-top:clamp(28px,4.4vw,54px);padding-bottom:clamp(28px,4.4vw,54px)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.14em;color:var(--brand);font-weight:700;text-transform:uppercase;margin-bottom:12px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--accent)}
+.hero h1{font-size:clamp(27px,3.7vw,42px);color:#16322a;letter-spacing:.01em;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--brand);border-bottom:3px solid var(--accent-soft)}
+.lede{font-size:clamp(15px,1.35vw,17px);color:var(--ink-2);max-width:34em;margin-bottom:20px}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;border-radius:99px;padding:11px 22px;
+  font-size:15px;font-weight:600;border:1px solid transparent;transition:transform .18s ease,background .18s ease;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-primary{background:var(--brand);color:#fff}
+.btn-primary:hover{background:var(--brand-2)}
+.btn-ghost{background:transparent;color:var(--brand);border-color:#b6cfc4}
+.btn-ghost:hover{background:var(--brand-soft)}
+.hero-stats{display:flex;gap:0;flex-wrap:wrap;border-top:1px solid #cfded6;padding-top:14px}
+.hero-stats div{padding-right:26px;margin-right:26px;border-right:1px solid #cfded6;line-height:1.35}
+.hero-stats div:last-child{border-right:0;margin-right:0;padding-right:0}
+.hero-stats b{display:block;font-size:22px;color:var(--brand);font-family:var(--serif);letter-spacing:.02em}
+.hero-stats span{font-size:12.5px;color:var(--muted)}
+.hero-art{position:relative;min-height:300px;display:flex;align-items:center;justify-content:center}
+.hero-art svg{width:100%;height:auto;max-width:430px;filter:drop-shadow(0 14px 28px rgba(31,93,74,.14))}
+.hero-art .float-card{
+  position:absolute;background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:9px 13px;font-size:12.5px;color:var(--ink-2);box-shadow:var(--shadow);
+  display:flex;align-items:center;gap:8px;white-space:nowrap;
+}
+.hero-art .fc1{top:6%;right:0}
+.hero-art .fc2{bottom:9%;left:-2%}
+.hero-art .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+.hero-art .fc2 .dot{background:var(--brand-2)}
+
+/* 主体布局：双栏标准 + 常驻侧栏 */
+.layout{
+  display:grid;grid-template-columns:minmax(0,1fr) 302px;gap:clamp(22px,3vw,40px);
+  align-items:start;padding-top:clamp(26px,3.4vw,42px);padding-bottom:clamp(30px,4vw,54px);
+}
+.section{margin-bottom:clamp(26px,3.2vw,44px);scroll-margin-top:132px}
+.section-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.section-head h2{font-size:clamp(19px,2vw,23px);color:#16322a}
+.section-head .kicker{font-size:12.5px;color:var(--muted);letter-spacing:.1em}
+.section-head .more{margin-left:auto;font-size:13.5px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:clamp(15px,2vw,22px)}
+
+/* 概览 */
+.overview-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:4px}
+.ov{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:13px 14px}
+.ov h3{font-size:14.5px;color:var(--brand);margin-bottom:5px}
+.ov p{font-size:13.5px;color:var(--ink-2);margin:0}
+.ov .num{font-family:var(--serif);font-size:19px;color:var(--accent);display:block;margin-bottom:2px}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.card .thumb{aspect-ratio:16/9;overflow:hidden;background:var(--paper-3)}
+.card .thumb img{width:100%;height:100%;object-fit:cover}
+.card-body{padding:13px 15px 15px;display:flex;flex-direction:column;gap:7px;flex:1}
+.card-body h3{font-size:16px;color:#1b3a31}
+.card-body p{font-size:13.5px;color:var(--ink-2);margin:0}
+.card-meta{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);margin-top:auto;flex-wrap:wrap}
+.pill{display:inline-block;background:var(--brand-soft);color:var(--brand);border-radius:99px;padding:1px 9px;font-size:11.5px;font-weight:600}
+.pill.amber{background:var(--accent-soft);color:#7c560f}
+.pill.grey{background:var(--line-2);color:var(--muted)}
+
+/* 紧凑列表 */
+.tight-list{list-style:none;margin:0;padding:0}
+.tight-list li{
+  display:grid;grid-template-columns:74px minmax(0,1fr) auto;gap:12px;align-items:baseline;
+  padding:10px 2px;border-bottom:1px dashed var(--line);margin:0;
+}
+.tight-list li:last-child{border-bottom:0}
+.tight-list time{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tight-list a{font-size:14.5px;color:var(--ink);font-weight:600}
+.tight-list a:hover{color:var(--brand)}
+.tight-list .desc{display:block;font-size:13px;color:var(--ink-2);font-weight:400;margin-top:2px}
+.tight-list .src{font-size:12px;color:var(--muted);white-space:nowrap}
+
+/* 分类入口 标签索引 */
+.tag-index{display:flex;flex-wrap:wrap;gap:9px}
+.tag-index a{
+  display:inline-flex;align-items:baseline;gap:6px;border:1px solid var(--line);
+  background:var(--paper);border-radius:99px;padding:6px 14px;font-size:14px;color:var(--ink-2);
+}
+.tag-index a:hover{border-color:var(--brand);color:var(--brand);background:var(--brand-soft);text-decoration:none}
+.tag-index .count{font-size:11.5px;color:var(--muted)}
+
+/* 深度解析 */
+.deep{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden}
+.deep-head{padding:clamp(16px,2.2vw,24px) clamp(16px,2.4vw,26px);background:linear-gradient(120deg,#f1f6f2,#f8f6ee);border-bottom:1px solid var(--line)}
+.deep-head h2{font-size:clamp(19px,2vw,23px)}
+.deep-head p{font-size:13.5px;color:var(--muted);margin:6px 0 0}
+.deep-body{padding:clamp(16px,2.4vw,26px);display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+.deep-body h3{font-size:16.5px;color:#173c31;margin:22px 0 9px;padding-left:11px;border-left:4px solid var(--accent)}
+.deep-body h3:first-child{margin-top:0}
+.deep-body p{font-size:14.8px;color:#27332e}
+.deep-body .quote{
+  border-left:3px solid var(--brand-2);background:var(--paper-2);padding:11px 15px;margin:14px 0;
+  border-radius:0 var(--radius-sm) var(--radius-sm) 0;font-family:var(--serif);font-size:15px;color:#1f3d33;
+}
+.deep-body .quote cite{display:block;font-family:var(--sans);font-size:12px;color:var(--muted);font-style:normal;margin-top:5px}
+.check-table{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:13.5px}
+.check-table caption{text-align:left;font-size:12.5px;color:var(--muted);padding-bottom:6px}
+.check-table th,.check-table td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.check-table th{background:var(--paper-3);font-weight:700;color:#1d3a31;white-space:nowrap}
+.check-table td b{color:var(--danger);font-weight:700}
+.check-table .same{color:var(--brand);font-weight:700}
+
+/* 步骤 */
+.steps{list-style:none;counter-reset:st;padding:0;margin:0;display:grid;gap:11px}
+.steps li{
+  counter-increment:st;position:relative;background:var(--paper);border:1px solid var(--line);
+  border-radius:var(--radius);padding:13px 15px 13px 56px;font-size:14px;
+}
+.steps li::before{
+  content:counter(st,decimal-leading-zero);position:absolute;left:13px;top:12px;
+  width:30px;height:30px;border-radius:8px;background:var(--brand);color:#fff;
+  font-family:var(--serif);font-size:14px;display:flex;align-items:center;justify-content:center;
+}
+.steps li b{display:block;color:#173c31;margin-bottom:2px}
+.steps li span{color:var(--ink-2);font-size:13.4px}
+
+/* 对照面板 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--paper)}
+.compare > div{padding:15px 17px}
+.compare > div:first-child{border-right:1px solid var(--line);background:#fbfcfb}
+.compare h3{font-size:14.5px;margin-bottom:8px;display:flex;align-items:center;gap:7px}
+.compare .badge{font-size:11px;font-weight:700;padding:1px 8px;border-radius:99px}
+.compare .b1{background:var(--brand-soft);color:var(--brand)}
+.compare .b2{background:var(--accent-soft);color:#7c560f}
+.compare ul{font-size:13.5px;color:var(--ink-2);margin:0;padding-left:1.2em}
+.compare li{margin-bottom:6px}
+
+/* FAQ */
+.faq{display:grid;gap:9px}
+details{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:0 15px;box-shadow:var(--shadow-sm);
+}
+details[open]{border-color:#b9d2c8}
+summary{
+  cursor:pointer;list-style:none;padding:12px 30px 12px 0;position:relative;
+  font-size:14.8px;font-weight:600;color:#1c3a31;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"+";position:absolute;right:2px;top:50%;transform:translateY(-50%);
+  font-size:19px;color:var(--brand);font-weight:400;line-height:1;
+}
+details[open] summary::after{content:"–"}
+details .ans{padding:0 0 13px;font-size:14px;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:10px}
+details .ans p:last-child{margin-bottom:0}
+
+/* 评论 */
+.comments{display:grid;gap:12px}
+.comment{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:13px 15px}
+.comment-top{display:flex;align-items:center;gap:9px;margin-bottom:6px;flex-wrap:wrap}
+.avatar{
+  width:30px;height:30px;border-radius:50%;background:var(--brand-soft);color:var(--brand);
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex:none;
+}
+.comment-top .who{font-size:13.5px;font-weight:700;color:#1d3a31}
+.comment-top .when{font-size:12px;color:var(--muted);margin-left:auto}
+.comment p{font-size:13.7px;margin:0;color:var(--ink-2)}
+.comment .ref{font-size:12.3px;color:var(--brand);margin-top:6px}
+.comment.warn{border-left:3px solid var(--accent)}
+
+/* 资讯 */
+.news-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.news-item{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:13px 15px}
+.news-item .date{font-size:12px;color:var(--muted);letter-spacing:.04em}
+.news-item h3{font-size:15px;margin:4px 0 5px;color:#1b3a31}
+.news-item p{font-size:13.4px;margin:0;color:var(--ink-2)}
+
+/* 时间线 */
+.timeline{list-style:none;margin:0;padding:0 0 0 22px;position:relative}
+.timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.timeline li{position:relative;margin-bottom:14px}
+.timeline li::before{
+  content:"";position:absolute;left:-20px;top:6px;width:10px;height:10px;border-radius:50%;
+  background:var(--paper);border:2.5px solid var(--brand-2);
+}
+.timeline .t{font-size:12.5px;color:var(--accent);font-weight:700;letter-spacing:.04em}
+.timeline h3{font-size:14.8px;margin:2px 0 3px;color:#1b3a31}
+.timeline p{font-size:13.4px;color:var(--ink-2);margin:0}
+
+/* 榜单 */
+.rank{list-style:none;margin:0;padding:0;counter-reset:rk}
+.rank li{
+  display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:11px;align-items:center;
+  padding:9px 4px;border-bottom:1px solid var(--line-2);counter-increment:rk;
+}
+.rank li:last-child{border-bottom:0}
+.rank li::before{
+  content:counter(rk);font-family:var(--serif);font-size:15px;color:var(--muted);text-align:center;
+}
+.rank li:nth-child(-n+3)::before{color:var(--accent);font-weight:700}
+.rank .name{font-size:14.4px;font-weight:600;color:var(--ink)}
+.rank .sub{display:block;font-size:12.4px;color:var(--muted);font-weight:400}
+.rank .n{font-size:12.5px;color:var(--brand);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* 相关推荐 */
+.reco{display:flex;flex-wrap:wrap;gap:9px}
+.reco a{
+  border:1px dashed #b9d2c8;border-radius:99px;padding:5px 13px;font-size:13.4px;
+  color:var(--brand);background:#fbfdfb;
+}
+.reco a:hover{background:var(--brand-soft);text-decoration:none}
+
+/* 侧栏 */
+.side{position:sticky;top:132px;display:grid;gap:16px}
+.side-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:15px 16px}
+.side-card h2,.side-card h3{font-size:14.5px;color:#173c31;margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.side-card h2::before,.side-card h3::before{content:"";width:4px;height:14px;border-radius:2px;background:var(--accent)}
+.side-nav ul{list-style:none;margin:0;padding:0}
+.side-nav li{margin:0}
+.side-nav a{
+  display:block;font-size:13.8px;color:var(--ink-2);padding:6px 9px;border-radius:var(--radius-sm);
+  border-left:3px solid transparent;
+}
+.side-nav a:hover{background:var(--paper-2);text-decoration:none;color:var(--brand)}
+.side-nav a.active{background:var(--brand-soft);color:var(--brand);border-left-color:var(--brand);font-weight:600}
+.side-list{list-style:none;margin:0;padding:0;font-size:13.5px}
+.side-list li{padding:7px 0;border-bottom:1px dashed var(--line);display:flex;gap:8px;align-items:baseline}
+.side-list li:last-child{border-bottom:0}
+.side-list .k{font-size:11.5px;color:#fff;background:var(--accent);border-radius:4px;padding:0 5px;flex:none}
+.side-list a{color:var(--ink-2)}
+.side-note{font-size:12.6px;color:var(--muted);margin:0}
+.side-note strong{color:var(--ink-2)}
+.mini-form{display:grid;gap:8px;margin-top:4px}
+.mini-form label{font-size:12.8px;color:var(--ink-2)}
+.mini-form input,.mini-form textarea{
+  width:100%;border:1px solid var(--line);border-radius:var(--radius-sm);padding:7px 9px;
+  font-family:inherit;font-size:13.5px;color:var(--ink);background:var(--paper-2);
+}
+.mini-form textarea{resize:vertical;min-height:64px}
+.mini-form button{border:0;background:var(--brand);color:#fff;border-radius:var(--radius-sm);padding:8px;font-size:13.6px}
+.mini-form button:hover{background:var(--brand-2)}
+.form-tip{font-size:12.3px;color:var(--muted);min-height:1.2em}
+.form-tip.ok{color:var(--brand)}
+.form-tip.err{color:var(--danger)}
+
+/* 页脚 */
+.site-foot{background:#173a30;color:#c9d8d1;margin-top:8px}
+.foot-inner{display:grid;grid-template-columns:minmax(0,1.25fr) repeat(3,minmax(0,.85fr));gap:26px;padding-top:clamp(26px,3.4vw,42px);padding-bottom:20px}
+.foot-brand .brand-name{color:#fff;font-size:18px;font-weight:800;letter-spacing:.02em}
+.foot-brand p{font-size:13.4px;color:#a9bcb4;margin:9px 0 12px;max-width:26em}
+.foot-brand .badge-line{display:flex;gap:7px;flex-wrap:wrap}
+.foot-brand .badge-line span{font-size:11.6px;border:1px solid #37615235;border-color:#3a6055;border-radius:99px;padding:2px 9px;color:#a9bcb4}
+.foot-col h3{font-size:13.8px;color:#fff;margin-bottom:9px;letter-spacing:.04em}
+.foot-col ul{list-style:none;margin:0;padding:0}
+.foot-col li{margin-bottom:6px}
+.foot-col a{font-size:13.2px;color:#b6c9c1}
+.foot-col a:hover{color:#fff}
+.foot-bottom{border-top:1px solid #2b4d42;padding-top:14px;padding-bottom:20px;font-size:12.5px;color:#93a9a0;display:flex;gap:14px;flex-wrap:wrap;align-items:baseline}
+.foot-bottom .upd{color:#c8b37a}
+
+/* 回顶 */
+.back-top{
+  position:fixed;right:16px;bottom:22px;z-index:90;border:1px solid var(--line);
+  background:var(--paper);color:var(--brand);border-radius:99px;padding:9px 15px;
+  box-shadow:var(--shadow);font-size:13.4px;font-weight:600;display:none;
+}
+.back-top.show{display:inline-block}
+.back-top:hover{background:var(--brand-soft)}
+
+@media (max-width:1020px){
+  .hero .wrap{grid-template-columns:1fr;gap:26px}
+  .hero-art{order:2;max-width:420px;margin:0 auto}
+  .hero-art .fc1{right:2%}
+  .layout{grid-template-columns:1fr}
+  .side{position:static;order:2;grid-template-columns:repeat(2,minmax(0,1fr));display:grid}
+  .side-card:first-child{grid-column:1/-1}
+  .foot-inner{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  html{scroll-padding-top:150px}
+  .head-inner{flex-wrap:wrap;gap:10px}
+  .brand{margin-right:auto}
+  .menu-btn{display:inline-flex}
+  .main-nav{order:4;margin-left:0;flex-basis:100%;display:none}
+  .main-nav.open{display:block}
+  .main-nav ul{flex-direction:column;gap:0;border-top:1px solid var(--line);padding-top:6px;margin-top:4px}
+  .main-nav a{display:block;border-radius:var(--radius-sm);padding:9px 12px}
+  .head-tools{order:3;flex-basis:100%}
+  .search{min-width:0;width:100%}
+  .overview-grid{grid-template-columns:1fr 1fr}
+  .card-grid{grid-template-columns:1fr}
+  .news-grid{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr}
+  .compare > div:first-child{border-right:0;border-bottom:1px solid var(--line)}
+  .side{grid-template-columns:1fr}
+  .side-card:first-child{grid-column:auto}
+  .foot-inner{grid-template-columns:1fr}
+  .tight-list li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .tight-list .src{white-space:normal}
+  .hero-stats div{padding-right:16px;margin-right:16px}
+  .checkbox-table{display:block;overflow-x:auto}
+  .check-table{font-size:12.6px}
+}
+@media (max-width:400px){
+  .overview-grid{grid-template-columns:1fr}
+  .hero-stats b{font-size:19px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .card:hover,.btn:hover{transform:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebSite",
+      "@id":"/#website",
+      "name":"集芳阁云搜网站",
+      "inLanguage":"zh-CN",
+      "description":"云盘资源检索与索引方法分享，含频道分类、聚合搜索技巧与失效排查。"
+    },
+    {
+      "@type":"FAQPage",
+      "@id":"/#faq",
+      "mainEntity":[
+        {"@type":"Question","name":"云盘索引站的收录范围一般包括哪些文件类型？","acceptedAnswer":{"@type":"Answer","text":"常见收录范围为电子书 PDF/EPUB、公开课视频 MP4、软件安装包与素材压缩包。受分享者命名习惯影响，同一文件可能以 3 至 5 种不同标题重复出现。"}},
+        {"@type":"Question","name":"搜索结果提示链接失效，下一步该查什么？","acceptedAnswer":{"@type":"Answer","text":"先看索引快照时间，超过 30 天的条目失效概率明显上升；再核对提取码是否被分享者修改；最后用文件完整名称在原分享平台做一次精确搜索。"}},
+        {"@type":"Question","name":"超星学习通公开课视频的资源怎么检索更准？","acceptedAnswer":{"@type":"Answer","text":"用课程编号加讲次号组合检索，如“020301-第4讲”。课程名全称常被缩写，编号稳定性高于标题。"}},
+        {"@type":"Question","name":"聚合搜索和站点内搜索谁的命中率高？","acceptedAnswer":{"@type":"Answer","text":"按 2026 年 10 月对 6 个索引源的抽样，聚合搜索首次命中率约 62%，单站内搜索约 41%。差异主要来自索引更新频率，而非索引体量。"}},
+        {"@type":"Question","name":"会员去重排序和普通排序区别在哪？","acceptedAnswer":{"@type":"Answer","text":"去重排序按文件哈希或标题相似度合并重复条目，结果条数通常减少 30% 至 45%，便于快速定位可用链接；普通排序按时间倒序，适合追新但重复较多。"}}
+      ]
+    }
+  ]
+}
+</script>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到主内容</a>
+
+<div class="sticky-top">
+  <div class="notice">
+    <div class="wrap">
+      <span class="tag">更新</span>
+      <span>11月7日新增「国家中小学智慧教育平台」公开课索引 1,284 条，电子书频道补录 2026 年 10 月新书 316 条</span>
+      <span class="sep">·</span>
+      <a href="/#latest">查看更新明细</a>
+    </div>
+  </div>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="/#top" aria-label="集芳阁云搜网站 首页">
+        <svg width="38" height="38" viewBox="0 0 38 38" role="img" aria-hidden="true">
+          <rect width="38" height="38" rx="10" fill="#1f5d4a"/>
+          <circle cx="16.5" cy="16.5" r="7.4" fill="none" stroke="#f2d479" stroke-width="2.8"/>
+          <path d="M22.2 22.2l6.2 6.2" stroke="#f2d479" stroke-width="2.8" stroke-linecap="round"/>
+          <circle cx="16.5" cy="16.5" r="2.4" fill="#f2d479" opacity=".85"/>
+        </svg>
+        <span class="brand-text">
+          <span class="brand-name">集芳阁云搜网站</span>
+          <span class="brand-sub">云盘索引 · 检索指南</span>
+        </span>
+      </a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mainNav">
+        <span class="bars" aria-hidden="true"></span>频道
+      </button>
+      <nav class="main-nav" id="mainNav" aria-label="主题导航">
+        <ul>
+          <li><a href="/#overview">索引概览</a></li>
+          <li><a href="/#picked">精选条目</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#channels">频道分类</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">检索指南</a></li>
+          <li><a href="/#faq">常见问答</a></li>
+        </ul>
+      </nav>
+      <div class="head-tools">
+        <form class="search" role="search" id="searchForm">
+          <label for="siteSearch" class="skip">站内查找</label>
+          <input id="siteSearch" type="search" placeholder="查条目、频道或问答…" autocomplete="off">
+          <button type="submit">查找</button>
+        </form>
+      </div>
+    </div>
+    <p class="search-msg" id="searchMsg" role="status" aria-live="polite"></p>
+  </header>
+</div>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">云盘资源索引 · 第 46 期维护</span>
+        <h1>集芳阁云搜网站</h1>
+        <p class="lede">把散落在多个网盘、论坛与公开课平台的分享链接收拢成可检索的索引。频道按电子书、公开课、软件安装包、设计素材四类划分，每条索引保留标题、分享时间、提取码状态与快照日期，减少在失效链接之间来回试错的时间。</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="/#picked">进入精选条目</a>
+          <a class="btn btn-ghost" href="/#guide">看检索流程</a>
+        </div>
+        <div class="hero-stats">
+          <div><b>38,412</b><span>在库索引条数</span></div>
+          <div><b>11</b><span>细分频道</span></div>
+          <div><b>92.6%</b><span>7日链接可用率</span></div>
+          <div><b>11月7日</b><span>最近一次全量校验</span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 330" role="img">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2f7d64"/><stop offset="1" stop-color="#1f5d4a"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f7f9f5"/><stop offset="1" stop-color="#e7efe8"/>
+            </linearGradient>
+          </defs>
+          <rect x="24" y="34" width="372" height="262" rx="18" fill="url(#g2)" stroke="#cfded6"/>
+          <rect x="24" y="34" width="372" height="42" rx="18" fill="url(#g1)"/>
+          <rect x="24" y="58" width="372" height="18" fill="url(#g1)"/>
+          <circle cx="46" cy="55" r="5" fill="#f2d479"/><circle cx="64" cy="55" r="5" fill="#a9d0c0" opacity=".8"/><circle cx="82" cy="55" r="5" fill="#a9d0c0" opacity=".55"/>
+          <rect x="46" y="94" width="176" height="13" rx="6.5" fill="#c6d8cf"/>
+          <rect x="46" y="116" width="120" height="10" rx="5" fill="#dbe6df"/>
+          <rect x="46" y="146" width="150" height="62" rx="10" fill="#fff" stroke="#d3e0d9"/>
+          <rect x="60" y="160" width="80" height="9" rx="4.5" fill="#2f7d64" opacity=".8"/>
+          <rect x="60" y="178" width="112" height="7" rx="3.5" fill="#cfded6"/>
+          <rect x="60" y="191" width="66" height="7" rx="3.5" fill="#cfded6"/>
+          <rect x="208" y="146" width="150" height="62" rx="10" fill="#fff" stroke="#d3e0d9"/>
+          <rect x="222" y="160" width="62" height="9" rx="4.5" fill="#b9832a" opacity=".85"/>
+          <rect x="222" y="178" width="112" height="7" rx="3.5" fill="#cfded6"/>
+          <rect x="222" y="191" width="84" height="7" rx="3.5" fill="#cfded6"/>
+          <rect x="46" y="222" width="312" height="52" rx="10" fill="#fff" stroke="#d3e0d9"/>
+          <circle cx="72" cy="248" r="14" fill="none" stroke="#2f7d64" stroke-width="3"/>
+          <path d="M82 258l9 9" stroke="#2f7d64" stroke-width="3" stroke-linecap="round"/>
+          <rect x="104" y="236" width="142" height="8" rx="4" fill="#c6d8cf"/>
+          <rect x="104" y="252" width="96" height="7" rx="3.5" fill="#dbe6df"/>
+          <rect x="286" y="238" width="56" height="22" rx="11" fill="#e3eee8"/>
+          <rect x="298" y="246" width="32" height="6" rx="3" fill="#2f7d64"/>
+        </svg>
+        <span class="float-card fc1"><span class="dot"></span>提取码有效 · 11月7日核验</span>
+        <span class="float-card fc2"><span class="dot"></span>去重后 2,170 条命中</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap layout">
+    <div class="content">
+
+      <section class="section" id="overview">
+        <div class="section-head">
+          <h2>索引概览</h2>
+          <span class="kicker">收录范围与校验口径</span>
+          <a class="more" href="/#channels">看全部频道</a>
+        </div>
+        <p>索引覆盖四类高频检索对象：电子书、公开课视频、桌面软件安装包、设计素材压缩包。每条记录保留原始分享标题、分享平台、分享日期、提取码状态、最近一次校验结果。11月7日全量校验后，38,412 条中 <strong>35,570 条</strong>链接可正常打开，失效条目保留快照 14 天后自动下架。</p>
+        <div class="overview-grid">
+          <div class="ov"><span class="num">12,860</span><h3>电子书索引</h3><p>以 PDF、EPUB 为主，含豆瓣读书条目号，便于按 ISBN 反查。</p></div>
+          <div class="ov"><span class="num">9,204</span><h3>公开课视频</h3><p>国家中小学智慧教育平台、超星学习通、B站高校公开课三类来源。</p></div>
+          <div class="ov"><span class="num">8,336</span><h3>软件安装包</h3><p>标注版本号与系统位数，Windows 与 macOS 分列，避免装错包。</p></div>
+          <div class="ov"><span class="num">5,412</span><h3>设计素材</h3><p>字体、图标、样机、AE 模板，附授权说明字段。</p></div>
+          <div class="ov"><span class="num">2,600</span><h3>考试资料</h3><p>四六级、考研、教师资格证真题与讲义，按年份归档。</p></div>
+          <div class="ov"><span class="num">14 天</span><h3>失效快照保留</h3><p>失效条目不立即删除，保留快照便于比对同名的其他可用版本。</p></div>
+        </div>
+      </section>
+
+      <section class="section" id="picked">
+        <div class="section-head">
+          <h2>精选条目推荐</h2>
+          <span class="kicker">本周人工复核</span>
+          <a class="more" href="/#rank">看可用率榜单</a>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <div class="thumb"><img src="https://picsum.photos/seed/jfgebook2026/640/360" width="640" height="360" loading="lazy" alt="书桌上一本摊开的电子书阅读器，旁边放着纸质笔记"></div>
+            <div class="card-body">
+              <span class="pill">电子书</span>
+              <h3>《中国哲学简史》冯友兰 北大版 PDF 校勘本</h3>
+              <p>北京大学出版社 2013 年修订版，页码与原书一致，书签完整，适合做读书笔记对照。</p>
+              <div class="card-meta"><span>11月5日收录</span><span>·</span><span>提取码有效</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="thumb"><img src="https://picsum.photos/seed/jfgcourse2026/640/360" width="640" height="360" loading="lazy" alt="教室投影屏幕播放公开课视频，学生在前排记笔记"></div>
+            <div class="card-body">
+              <span class="pill">公开课</span>
+              <h3>超星学习通 高等数学（上）第 4 讲 极限定义</h3>
+              <p>课程编号 020301，讲次与讲义页码对应，视频为 1080P，含板书特写镜头。</p>
+              <div class="card-meta"><span>11月6日收录</span><span>·</span><span>提取码有效</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="thumb"><img src="https://picsum.photos/seed/jfgsoft2026/640/360" width="640" height="360" loading="lazy" alt="笔记本电脑屏幕上显示软件安装向导，旁边放着外接键盘"></div>
+            <div class="card-body">
+              <span class="pill amber">软件</span>
+              <h3>WPS Office 2023 专业版 Windows 64 位安装包</h3>
+              <p>版本号 11.8.2.12195，附离线激活说明，安装前建议先卸载旧版避免冲突。</p>
+              <div class="card-meta"><span>11月4日收录</span><span>·</span><span>提取码有效</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="thumb"><img src="https://picsum.photos/seed/jfgdesign2026/640/360" width="640" height="360" loading="lazy" alt="设计师工作台上排列的字体样张卡片与色卡"></div>
+            <div class="card-body">
+              <span class="pill amber">素材</span>
+              <h3>思源宋体 2026 秋季更新 简繁合集</h3>
+              <p>含 7 个字重，OTF 与 TTF 双格式，附 SIL Open Font License 原文，商用需保留授权文件。</p>
+              <div class="card-meta"><span>11月3日收录</span><span>·</span><span>提取码有效</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="latest">
+        <div class="section-head">
+          <h2>最新更新</h2>
+          <span class="kicker">近一周入库记录</span>
+        </div>
+        <div class="panel">
+          <ul class="tight-list">
+            <li><time datetime="2026-11-07">11月7日</time><div><a href="/#latest">国家中小学智慧教育平台公开课索引 1,284 条</a><span class="desc">覆盖小学至高中九门学科，按学段与教材版本双维度标注。</span></div><span class="src">全量校验</span></li>
+            <li><time datetime="2026-11-06">11月6日</time><div><a href="/#latest">超星学习通 2026 秋季课程补录 268 讲</a><span class="desc">新增《线性代数》《大学物理》两门课程，讲次编号与教务系统一致。</span></div><span class="src">人工复核</span></li>
+            <li><time datetime="2026-11-05">11月5日</time><div><a href="/#latest">电子书频道补录 10 月新书 316 条</a><span class="desc">含豆瓣评分 8.0 以上条目 74 本，EPUB 优先于 PDF 收录。</span></div><span class="src">自动抓取</span></li>
+            <li><time datetime="2026-11-04">11月4日</time><div><a href="/#latest">Adobe 系列安装包版本号批量更新</a><span class="desc">Photoshop 26.1、Illustrator 30.2 两处版本号变更，系统位数标注已同步。</span></div><span class="src">版本比对</span></li>
+            <li><time datetime="2026-11-02">11月2日</time><div><a href="/#latest">失效条目集中清理 1,402 条</a><span class="desc">清理前保留快照，可在快照页比对同名条目的其他可用版本。</span></div><span class="src">批量下架</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="channels">
+        <div class="section-head">
+          <h2>频道分类入口</h2>
+          <span class="kicker">11 个细分频道</span>
+        </div>
+        <div class="tag-index">
+          <a href="/#channels">电子书 PDF 资源 <span class="count">4,120</span></a>
+          <a href="/#channels">EPUB 电子书索引 <span class="count">3,286</span></a>
+          <a href="/#channels">国家中小学智慧教育平台 <span class="count">1,284</span></a>
+          <a href="/#channels">超星学习通公开课 <span class="count">3,940</span></a>
+          <a href="/#channels">B站高校公开课 <span class="count">2,710</span></a>
+          <a href="/#channels">Windows 软件安装包 <span class="count">5,204</span></a>
+          <a href="/#channels">macOS 应用镜像 <span class="count">2,186</span></a>
+          <a href="/#channels">设计字体合集 <span class="count">1,860</span></a>
+          <a href="/#channels">AE 模板与样机 <span class="count">1,420</span></a>
+          <a href="/#channels">考研真题讲义 <span class="count">1,306</span></a>
+          <a href="/#channels">教师资格证资料 <span class="count">1,294</span></a>
+        </div>
+      </section>
+
+      <section class="section" id="deep">
+        <div class="deep">
+          <div class="deep-head">
+            <h2>深度解析：索引条数与可用率，哪个更该看</h2>
+            <p>样本取自 2026 年 10 月 8 日至 11 月 7 日六个索引源的公开校验数据</p>
+          </div>
+          <div class="deep-body">
+            <p>检索者常把索引条数当成站点实力，但条数与可用率往往此消彼长。10 月对六个索引源的抽样显示，条数最多的两个源，7 日链接可用率分别为 71.3% 和 68.9%；条数排第四的源，可用率反而达到 92.6%。规模上去之后，陈旧分享链接来不及清理，是差距的直接来源。</p>
+
+            <div class="quote">
+              “用户真正花时间的地方不是搜索，是点开链接后等跳转失败的那 8 秒。”
+              <cite>某索引站 10 月 22 日社区反馈帖，评论区 47 条回应中 31 条提到失效</cite>
+            </div>
+
+            <h3>可核对的一条时间线：三个源在同一周的失效节奏</h3>
+            <p>10 月 26 日至 11 月 1 日，A 源新增条目 1,860 条，其中判定失效 214 条；B 源新增 3,120 条，失效率 9.4%；C 源新增 640 条，失效率 1.7%。C 源做法简单：每条索引入库时记录分享者账号状态，账号注销即标记待复核。判断随之明确——<strong>索引的维护频率比初始收录量更能决定使用体验</strong>，因为网盘分享链接的有效期通常取决于分享者是否改动提取码。</p>
+
+            <h3>同一个标题，两个源给出的版本不一样</h3>
+            <p>以“高等数学 同济第七版 习题全解”为例，10 月 30 日的两条索引：一条标 2021 年扫描版，共 412 页；另一条标 2024 年重排版，共 486 页，并注明新增第 12 章题解。两条都可用，但页码对不上，抄答案时容易错位。可核对的做法是看索引里的页数字段，而不是只看标题是否一致。</p>
+
+            <table class="check-table">
+              <caption>同一条目在两个索引源的字段差异（11月1日抓取）</caption>
+              <thead><tr><th>字段</th><th>源 A</th><th>源 B</th><th>核对结论</th></tr></thead>
+              <tbody>
+                <tr><td>页数</td><td>412</td><td>486</td><td><b>不一致</b>，对应不同排版</td></tr>
+                <tr><td>分享日期</td><td>2021-09-14</td><td>2024-03-02</td><td>源 B 较新</td></tr>
+                <tr><td>提取码</td><td>4 位数字</td><td>4 位字母</td><td>两者均有效</td></tr>
+                <tr><td>校验时间</td><td>10 月 18 日</td><td>11 月 1 日</td><td class="same">源 B 校验更近</td></tr>
+              </tbody>
+            </table>
+
+            <h3>规则前后变化：提取码校验从每日改成每周</h3>
+            <p>9 月之前，多数字索站每天全量校验提取码，服务器压力大，反而漏掉分享者临时改码的情况。10 月 12 日起，部分源改为每周全量加每日抽检 8%。结果是误报率下降，但当天改码的条目要等到下一次抽检才被发现。这解释了为什么“昨天还能打开、今天失效”的反馈在 10 月中旬后变多。</p>
+
+            <h3>一个可被反驳的判断</h3>
+            <p>有观点认为，只要索引体量足够大，重复条目可以互相兜底，无需去重。按 10 月样本，同一文件平均有 3.4 条重复索引，但其中 2.1 条指向同一分享链接，兜底作用有限。更实际的做法是按文件哈希去重后保留最新的两条，既留余量又不淹没结果。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="guide">
+        <div class="section-head">
+          <h2>检索体验指南</h2>
+          <span class="kicker">从关键词到可用链接</span>
+        </div>
+        <ol class="steps">
+          <li><b>先锁定频道，再写关键词</b><span>确定要找的是电子书还是安装包，频道选错会让结果里混进大量同名不同类文件。电子书频道内搜“书名 + 版次”，软件频道内搜“软件名 + 版本号 + 位数”。</span></li>
+          <li><b>给关键词加结构化限定</b><span>公开课用“课程编号 + 讲次号”，如 020301 第 4 讲；素材用“格式 + 用途”，如 OTF 商用字体。限定词越具体，命中越少但可用率越高。</span></li>
+          <li><b>看快照日期而不是分享日期</b><span>分享日期早但快照日期近，说明近期被复核过；分享日期近而快照超过 30 天，失效概率会抬升到四成以上。</span></li>
+          <li><b>失效后做二次比对</b><span>同一标题往往有 2 至 4 个版本，换一条索引再试；仍失败则回到原分享平台用完整文件名精确搜索，避免用被缩写过的标题。</span></li>
+        </ol>
+        <div class="compare" style="margin-top:16px">
+          <div>
+            <h3><span class="badge b1">聚合搜索</span>一次查多个源</h3>
+            <ul>
+              <li>首次命中率约 62%（10 月六源抽样）</li>
+              <li>结果重复多，需自带去重</li>
+              <li>适合不知道在哪个源的情况</li>
+              <li>响应较慢，单次约 1.8 至 3 秒</li>
+            </ul>
+          </div>
+          <div>
+            <h3><span class="badge b2">站内搜索</span>单源精确查</h3>
+            <ul>
+              <li>首次命中率约 41%，但字段更全</li>
+              <li>可按页数、版本、校验时间筛选</li>
+              <li>适合已知目标源的场景</li>
+              <li>响应快，单次约 0.4 秒</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="section-head">
+          <h2>常见问答</h2>
+          <span class="kicker">检索与使用中的高频疑问</span>
+        </div>
+        <div class="faq">
+          <details open>
+            <summary>云盘索引站的收录范围一般包括哪些文件类型？</summary>
+            <div class="ans"><p>常见收录范围为电子书 PDF/EPUB、公开课视频 MP4、软件安装包与素材压缩包。受分享者命名习惯影响，同一文件可能以 3 至 5 种不同标题重复出现，按文件哈希去重能减少一半以上的重复结果。</p></div>
+          </details>
+          <details>
+            <summary>搜索结果提示链接失效，下一步该查什么？</summary>
+            <div class="ans"><p>先看索引快照时间，超过 30 天的条目失效概率明显上升；再核对提取码是否被分享者修改；最后用文件完整名称在原分享平台做一次精确搜索。三步走完仍失败，多半是文件已被分享者删除，换同名其他版本更省时间。</p></div>
+          </details>
+          <details>
+            <summary>超星学习通公开课视频的资源怎么检索更准？</summary>
+            <div class="ans"><p>用课程编号加讲次号组合检索，如“020301-第4讲”。课程名全称常被缩写，《高等数学（上）》有“高数上”“高数A”等多种写法，编号稳定性高于标题。若只记得课程名，可在频道内先按学科筛一遍再截取讲次。</p></div>
+          </details>
+          <details>
+            <summary>聚合搜索和站点内搜索谁的命中率高？</summary>
+            <div class="ans"><p>按 2026 年 10 月对 6 个索引源的抽样，聚合搜索首次命中率约 62%，单站内搜索约 41%。差异主要来自索引更新频率，而非索引体量。已知目标源时用站内搜索，字段更全、响应更快。</p></div>
+          </details>
+          <details>
+            <summary>会员去重排序和普通排序区别在哪？</summary>
+            <div class="ans"><p>去重排序按文件哈希或标题相似度合并重复条目，结果条数通常减少 30% 至 45%，便于快速定位可用链接；普通排序按时间倒序，适合追新但重复较多。两类排序在 11 月 7 日校验后均标注了快照日期。</p></div>
+          </details>
+          <details>
+            <summary>EPUB 和 PDF 两种格式对抄笔记有何差别？</summary>
+            <div class="ans"><p>EPUB 可重排，字号与行距能调，适合在手机上通读；PDF 版式固定，页码与原书一致，引用时更方便。同一本书两个格式都有索引时，做笔记建议下 EPUB，写引用标注页码则用 PDF。</p></div>
+          </details>
+        </div>
+      </section>
+
+      <section class="section" id="comments">
+        <div class="section-head">
+          <h2>用户评论</h2>
+          <span class="kicker">来自条目页与频道页的反馈</span>
+        </div>
+        <div class="comments">
+          <div class="comment">
+            <div class="comment-top"><span class="avatar">林</span><span class="who">林舟_1993</span><span class="when">11月7日</span></div>
+            <p>《中国哲学简史》那个校勘本确实和 2013 年北大版页码对得上，第七讲引文在 92 页，没错。之前下过另一个 486 页的版本，页码差了一截，抄笔记时候找得头大。</p>
+            <p class="ref">指向：精选条目 · 冯友兰《中国哲学简史》PDF 校勘本</p>
+          </div>
+          <div class="comment warn">
+            <div class="comment-top"><span class="avatar">陈</span><span class="who">陈默然</span><span class="when">11月6日</span></div>
+            <p>WPS 2023 那个包我装了两次都提示缺 vcruntime140.dll，估计是精简过头的版本。建议标注一下依赖组件，不然新手会以为文件坏了。</p>
+            <p class="ref">指向：精选条目 · WPS Office 2023 专业版安装包</p>
+          </div>
+          <div class="comment">
+            <div class="comment-top"><span class="avatar">吴</span><span class="who">吴一苇</span><span class="when">11月5日</span></div>
+            <p>学习通那门高数第 4 讲确实是讲极限定义的，编号 020301 对得上。就是视频最后 3 分钟没声音，不知道是源文件问题还是转存时掉的，不影响公式推导部分。</p>
+            <p class="ref">指向：精选条目 · 超星学习通 高等数学（上）第 4 讲</p>
+          </div>
+          <div class="comment">
+            <div class="comment-top"><span class="avatar">赵</span><span class="who">赵疏影</span><span class="when">11月5日</span></div>
+            <p>思源宋体这次秋季版把繁体字重补齐了，做古籍排版省事。授权文件我看了，SIL OFL 允许嵌入文档，但别单独卖字体文件，这条很多素材站都不写清楚。</p>
+            <p class="ref">指向：精选条目 · 思源宋体 2026 秋季更新</p>
+          </div>
+          <div class="comment">
+            <div class="comment-top"><span class="avatar">周</span><span class="who">周以棠</span><span class="when">11月4日</span></div>
+            <p>去重排序挺好用，搜“线性代数”从 380 条降到 210 条。但有些合并把不同年份的版本也并了，点进去发现是 2019 版而不是 2024 版，这点还能再细一点。</p>
+          </div>
+          <div class="comment">
+            <div class="comment-top"><span class="avatar">何</span><span class="who">何斯远</span><span class="when">11月3日</span></div>
+            <p>10 月清理那 1,402 条里有我要的考研数学真题，快照页还能看到标题和原分享账号，按账号去搜又找到一个新的，算救回来一半。</p>
+            <p class="ref">指向：最新更新 · 11月2日失效条目集中清理</p>
+          </div>
+          <div class="comment">
+            <div class="comment-top"><span class="avatar">苏</span><span class="who">苏晚晴</span><span class="when">11月2日</span></div>
+            <p>整体还行，界面比那些弹窗满天飞的站干净。就是手机端频道切换要点两次，第一次展开菜单第二次才点进频道，能改成一次就顺了。</p>
+          </div>
+          <div class="comment">
+            <div class="comment-top"><span class="avatar">郑</span><span class="who">郑嘉禾</span><span class="when">11月1日</span></div>
+            <p>国家中小学那个平台上个月改过目录结构，原来按年级分的现在按教材版本，索引如果不跟着改，小学语文的三年级条目会指到旧路径。11月7日这批看起来是新的，先记着。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="news">
+        <div class="section-head">
+          <h2>相关资讯</h2>
+          <span class="kicker">索引源与平台动态</span>
+        </div>
+        <div class="news-grid">
+          <div class="news-item">
+            <span class="date">11月6日</span>
+            <h3>智慧教育平台调整教材版本目录，索引需重映射</h3>
+            <p>据平台 11 月 6 日公告，小学语文按统编版、人教版两条线重排路径，旧链接跳转至新版首页。已有索引按公告补充了新路径映射，涉及 486 条。</p>
+          </div>
+          <div class="news-item">
+            <span class="date">11月3日</span>
+            <h3>超星学习通 2026 秋季课程表公布，新增两门公共课</h3>
+            <p>《线性代数》与《大学物理》列入秋季公共课，课程编号沿用 0203 段。索引已补录 268 讲，讲次编号与教务系统一致。</p>
+          </div>
+          <div class="news-item">
+            <span class="date">10月30日</span>
+            <h3>多款网盘调整提取码策略，4 位数字码逐步减少</h3>
+            <p>10 月下旬起，部分网盘新建分享默认使用字母加数字组合码。索引库中 4 位数字码条目占比从 74% 降到 58%，校验规则已同步。</p>
+          </div>
+          <div class="news-item">
+            <span class="date">10月27日</span>
+            <h3>开源字体授权说明更新，SIL OFL 1.1 表述更明确</h3>
+            <p>字体项目方在 10 月 27 日修订授权 FAQ，明确嵌入电子文档不构成再分发。素材频道已更新授权字段，商用前仍建议核对原文。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="rank">
+        <div class="section-head">
+          <h2>可用率榜单</h2>
+          <span class="kicker">11月7日校验后的频道排序</span>
+        </div>
+        <div class="panel">
+          <ol class="rank">
+            <li><div class="name">EPUB 电子书索引<span class="sub">重排格式，链接体积小，转存成功后保存率高</span></div><span class="n">96.4%</span></li>
+            <li><div class="name">设计字体合集<span class="sub">字体文件体积大，分享者更倾向长期保留</span></div><span class="n">95.1%</span></li>
+            <li><div class="name">国家中小学智慧教育平台<span class="sub">官方源站，失效主要来自目录调整</span></div><span class="n">94.2%</span></li>
+            <li><div class="name">Windows 软件安装包<span class="sub">版本迭代快，旧版本失效率明显高于新版本</span></div><span class="n">91.7%</span></li>
+            <li><div class="name">B站高校公开课<span class="sub">视频源站稳定，部分合集存在分P被删除</span></div><span class="n">89.5%</span></li>
+            <li><div class="name">AE 模板与样机<span class="sub">依赖大体积附件，转存中断较多</span></div><span class="n">84.3%</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="reco">
+        <div class="section-head">
+          <h2>相关推荐</h2>
+          <span class="kicker">按检索场景延伸</span>
+        </div>
+        <div class="reco">
+          <a href="/#guide">PDF 页码与原书对照技巧</a>
+          <a href="/#guide">公开课课程编号检索法</a>
+          <a href="/#faq">提取码失效三步排查</a>
+          <a href="/#deep">索引条数与可用率对比</a>
+          <a href="/#rank">高可用率频道排序</a>
+          <a href="/#channels">考试真题按年份归档</a>
+          <a href="/#latest">失效快照 14 天保留说明</a>
+          <a href="/#comments">条目页使用反馈汇总</a>
+        </div>
+      </section>
+
+    </div>
+
+    <aside class="side" aria-label="侧栏">
+      <div class="side-card side-nav" id="sideNav">
+        <h2>栏目导航</h2>
+        <ul>
+          <li><a href="/#overview">索引概览</a></li>
+          <li><a href="/#picked">精选条目推荐</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#channels">频道分类入口</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">检索体验指南</a></li>
+          <li><a href="/#faq">常见问答</a></li>
+          <li><a href="/#comments">用户评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#rank">可用率榜单</a></li>
+        </ul>
+      </div>
+      <div class="side-card">
+        <h3>本周收录动态</h3>
+        <ul class="side-list">
+          <li><span class="k">公开课</span><a href="/#latest">11月7日补录 1,284 条</a></li>
+          <li><span class="k">电子书</span><a href="/#latest">10 月新书 316 条</a></li>
+          <li><span class="k">软件</span><a href="/#latest">Adobe 两处版本号更新</a></li>
+          <li><span class="k">清理</span><a href="/#latest">失效条目下架 1,402 条</a></li>
+        </ul>
+        <p class="side-note"><strong>校验口径：</strong>全量每周一次，抽检每日 8%，快照时间以条目页标注为准。</p>
+      </div>
+      <div class="side-card">
+        <h3>提交一条索引</h3>
+        <form class="mini-form" id="tipForm">
+          <label for="tipName">文件或课程名称</label>
+          <input id="tipName" name="tipName" type="text" placeholder="如：线性代数 同济第六版" required>
+          <label for="tipNote">补充说明（版本、页数、讲次）</label>
+          <textarea id="tipNote" name="tipNote" placeholder="如：PDF 486 页，2024 重排版"></textarea>
+          <button type="submit">提交待复核</button>
+          <p class="form-tip" id="tipMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <span class="brand-name">集芳阁云搜网站</span>
+        <p>把多平台分享链接整理成带校验时间的索引，帮助检索者少在失效页面之间来回折腾。</p>
+        <div class="badge-line">
+          <span>索引示例数据</span>
+          <span>11月7日全量校验</span>
+          <span>失效快照保留 14 天</span>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h3>频道入口</h3>
+        <ul>
+          <li><a href="/#channels">电子书 PDF 资源</a></li>
+          <li><a href="/#channels">超星学习通公开课</a></li>
+          <li><a href="/#channels">Windows 软件安装包</a></li>
+          <li><a href="/#channels">设计字体合集</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>使用指引</h3>
+        <ul>
+          <li><a href="/#guide">检索流程四步</a></li>
+          <li><a href="/#faq">提取码失效排查</a></li>
+          <li><a href="/#deep">条数与可用率对比</a></li>
+          <li><a href="/#latest">更新记录</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h3>互动与反馈</h3>
+        <ul>
+          <li><a href="/#comments">用户评论</a></li>
+          <li><a href="/#reco">相关推荐</a></li>
+          <li><a href="/#rank">可用率榜单</a></li>
+          <li><a href="/#news">平台动态</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 集芳阁云搜网站 · 内容为示例索引数据，仅供检索方法参考</span>
+      <span class="upd">页面更新：11月7日（对应最新更新与可用率榜单）</span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" type="button">回到顶部</button>
+
+<script>
+(function(){
+  var menuBtn=document.getElementById('menuBtn');
+  var nav=document.getElementById('mainNav');
+  if(menuBtn&&nav){
+    menuBtn.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    nav.addEventListener('click',function(e){
+      if(e.target.tagName==='A'&&window.innerWidth<=760){
+        nav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  var backTop=document.getElementById('backTop');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>560){backTop.classList.add('show');}else{backTop.classList.remove('show');}
+  },{passive:true});
+  backTop.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  var links=Array.prototype.slice.call(document.querySelectorAll('#sideNav a'));
+  var sections=links.map(function(a){
+    var id=a.getAttribute('href').split('#')[1];
+    return document.getElementById(id);
+  }).filter(Boolean);
+  function highlight(){
+    var pos=window.scrollY+180;
+    var idx=-1;
+    sections.forEach(function(sec,i){
+      if(sec.offsetTop<=pos){idx=i;}
+    });
+    links.forEach(function(a,i){
+      a.classList.toggle('active',i===idx);
+    });
+  }
+  window.addEventListener('scroll',highlight,{passive:true});
+  highlight();
+
+  var form=document.getElementById('searchForm');
+  var input=document.getElementById('siteSearch');
+  var msg=document.getElementById('searchMsg');
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var q=(input.value||'').trim();
+      if(!q){msg.className='search-msg show';msg.textContent='请输入要查找的条目、频道或问答关键词。';return;}
+      var target=null;
+      var pool=document.querySelectorAll('main h2, main h3, main .tag-index a, main .reco a, main summary');
+      for(var i=0;i<pool.length;i++){
+        if(pool[i].textContent.indexOf(q)>-1){target=pool[i];break;}
+      }
+      if(target){
+        msg.className='search-msg show';
+        msg.innerHTML='已定位到：<span class="ok">'+target.textContent.replace(/\s+/g,' ').slice(0,42)+'</span>';
+        target.scrollIntoView({behavior:'smooth',block:'center'});
+        if(target.tagName==='SUMMARY'&&target.parentElement&&!target.parentElement.open){
+          target.parentElement.open=true;
+        }
+      }else{
+        msg.className='search-msg show';
+        msg.textContent='没有找到「'+q+'」相关条目。可换用频道名、课程编号或文件版本号再试。';
+      }
+    });
+  }
+
+  var tipForm=document.getElementById('tipForm');
+  var tipMsg=document.getElementById('tipMsg');
+  if(tipForm){
+    tipForm.addEventListener('submit',function(e){
+      e.preventDefault();
+      var name=document.getElementById('tipName').value.trim();
+      if(!name){
+        tipMsg.className='form-tip err';
+        tipMsg.textContent='请先填写文件或课程名称。';
+        return;
+      }
+      tipMsg.className='form-tip ok';
+      tipMsg.textContent='已记录「'+name+'」，将进入下一轮抽检队列（示例，不实际提交）。';
+      tipForm.reset();
+    });
+  }
+})();
+</script>
+</body>
+                                                                                             </html>
