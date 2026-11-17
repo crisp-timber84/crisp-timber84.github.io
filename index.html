@@ -1,0 +1,1048 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小小绘推特官网-创作者动态与作品归档</title>
+<meta name="description" content="小小绘推特官网是整理小小绘在推特发布插画、动态与连载信息的归档站，收录2026年10月至11月的更新记录、分类索引、深度解析与体验指南，方便按日期与主题检索作品及原帖出处。">
+<meta name="keywords" content="小小绘推特官网">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e0526b'/%3E%3Cpath d='M8 22c4-9 12-12 16-12-2 5-5 12-16 12z' fill='%23fff3ea'/%3E%3Ccircle cx='20' cy='11' r='2.4' fill='%232b1c2c'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#2b1c2c;
+  --ink-soft:#5c4a5e;
+  --muted:#8a7689;
+  --line:#e8dde4;
+  --bg:#fdf8fa;
+  --bg-alt:#f7eef2;
+  --card:#ffffff;
+  --brand:#e0526b;
+  --brand-deep:#b02f4b;
+  --accent:#2f6f6a;
+  --accent-soft:#e3f0ee;
+  --sun:#f2a53c;
+  --radius:14px;
+  --radius-sm:8px;
+  --shadow-sm:0 1px 2px rgba(43,28,44,.06),0 4px 14px rgba(43,28,44,.05);
+  --shadow-md:0 6px 24px rgba(43,28,44,.10);
+  --sp-1:6px;--sp-2:10px;--sp-3:16px;--sp-4:24px;--sp-5:36px;--sp-6:56px;
+  --f-sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-serif:"Songti SC","Noto Serif SC","Source Han Serif SC",Georgia,serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--f-sans);color:var(--ink);background:var(--bg);
+  line-height:1.78;font-size:16px;-webkit-text-size-adjust:100%;
+}
+img{max-width:100%;display:block}
+a{color:var(--brand-deep);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{line-height:1.35;margin:0;font-weight:700}
+p{margin:0 0 var(--sp-3)}
+ul,ol{margin:0 0 var(--sp-3);padding-left:1.25em}
+li{margin-bottom:var(--sp-1)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 var(--sp-4)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip-link{position:absolute;left:8px;top:-48px;background:var(--ink);color:#fff;padding:8px 14px;border-radius:var(--radius-sm);z-index:200}
+.skip-link:focus{top:8px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+/* 吸顶：公告条 + 页头 */
+.sticky-top{position:sticky;top:0;z-index:100}
+.announce{
+  background:linear-gradient(90deg,var(--ink) 0%,#4a2f4a 60%,var(--brand-deep) 100%);
+  color:#f6e9ef;font-size:13px;padding:7px 0;
+}
+.announce .wrap{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.announce b{color:#fff}
+.announce .tag{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.24);border-radius:999px;padding:1px 10px;font-size:12px;white-space:nowrap}
+.announce a{color:#ffd9e2}
+.site-header{background:rgba(253,248,250,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm)}
+.header-inner{display:flex;align-items:center;gap:var(--sp-4);padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand svg{width:38px;height:38px;flex-shrink:0}
+.brand-text{font-family:var(--f-serif);font-size:19px;font-weight:700;letter-spacing:.5px;color:var(--ink);white-space:nowrap}
+.brand-text small{display:block;font-family:var(--f-sans);font-size:11px;font-weight:400;letter-spacing:1px;color:var(--muted)}
+.main-nav{flex:1;min-width:0}
+.nav-toggle{display:none;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:8px 12px;font-size:14px;color:var(--ink);cursor:pointer;align-items:center;gap:6px}
+.nav-toggle .bars{display:inline-block;width:16px;height:2px;background:var(--ink);position:relative}
+.nav-toggle .bars::before,.nav-toggle .bars::after{content:"";position:absolute;left:0;width:16px;height:2px;background:var(--ink)}
+.nav-toggle .bars::before{top:-5px}.nav-toggle .bars::after{top:5px}
+.nav-list{display:flex;gap:2px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav-list a{display:block;padding:7px 11px;border-radius:999px;font-size:14px;color:var(--ink-soft);white-space:nowrap}
+.nav-list a:hover,.nav-list a:focus-visible{background:var(--bg-alt);color:var(--brand-deep);text-decoration:none}
+.header-tools{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.search-box{position:relative}
+.search-box input{
+  width:186px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;
+  font-size:13px;background:var(--card);color:var(--ink);font-family:inherit;
+}
+.search-box input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(224,82,107,.14)}
+.search-feedback{position:absolute;top:calc(100% + 6px);left:0;right:0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);box-shadow:var(--shadow-md);padding:10px;font-size:13px;color:var(--ink-soft);display:none;z-index:120}
+.search-feedback.show{display:block}
+.btn{
+  display:inline-block;padding:9px 18px;border-radius:999px;font-size:14px;font-weight:600;
+  background:var(--brand);color:#fff;border:1px solid var(--brand);cursor:pointer;font-family:inherit;
+}
+.btn:hover{background:var(--brand-deep);border-color:var(--brand-deep);text-decoration:none;color:#fff}
+.btn.ghost{background:transparent;color:var(--brand-deep);border-color:var(--brand)}
+.btn.ghost:hover{background:var(--bg-alt);color:var(--brand-deep)}
+
+/* 首屏 */
+.hero{
+  position:relative;overflow:hidden;border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(1200px 400px at 85% -60px,rgba(224,82,107,.16),transparent 60%),
+    radial-gradient(900px 360px at 6% 120%,rgba(47,111,106,.13),transparent 62%),
+    var(--bg-alt);
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:var(--sp-5);align-items:center;padding:var(--sp-6) 0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:1px;color:var(--brand-deep);background:#fff;border:1px solid #f0cfd8;border-radius:999px;padding:4px 14px;margin-bottom:var(--sp-3)}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--brand);display:inline-block}
+.hero h1{font-family:var(--f-serif);font-size:clamp(30px,4.6vw,50px);letter-spacing:1px;margin-bottom:var(--sp-3)}
+.hero h1 .brush{background:linear-gradient(transparent 66%,rgba(242,165,60,.42) 66%)}
+.hero-lead{font-size:17px;color:var(--ink-soft);max-width:34em;margin-bottom:var(--sp-4)}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:var(--sp-4)}
+.hero-stats{display:flex;gap:var(--sp-5);flex-wrap:wrap;list-style:none;padding:0;margin:0}
+.hero-stats li{font-size:13px;color:var(--muted);line-height:1.4}
+.hero-stats b{display:block;font-family:var(--f-serif);font-size:24px;color:var(--ink);line-height:1.2}
+.hero-art{position:relative;min-height:330px}
+.hero-art svg{width:100%;height:auto;display:block;filter:drop-shadow(0 14px 26px rgba(43,28,44,.14))}
+.art-badge{
+  position:absolute;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);padding:8px 12px;font-size:12px;color:var(--ink-soft);line-height:1.35;
+}
+.art-badge b{display:block;font-size:14px;color:var(--ink)}
+.art-badge.one{left:-6px;bottom:56px}
+.art-badge.two{right:-4px;top:22px}
+
+/* 通用板块 */
+.section{padding:var(--sp-6) 0;border-bottom:1px solid var(--line);scroll-margin-top:150px}
+.section:last-of-type{border-bottom:0}
+.sec-head{display:flex;align-items:baseline;gap:var(--sp-3);flex-wrap:wrap;margin-bottom:var(--sp-4)}
+.sec-head h2{font-family:var(--f-serif);font-size:clamp(22px,2.6vw,28px)}
+.sec-head .kicker{font-size:12px;letter-spacing:2px;color:var(--brand);border-left:3px solid var(--brand);padding-left:10px;text-transform:uppercase}
+.sec-desc{color:var(--ink-soft);font-size:15px;margin:0;flex-basis:100%;max-width:52em}
+.sec-more{margin-left:auto;font-size:14px;white-space:nowrap}
+
+/* 三栏门户主内容 */
+.layout{display:grid;grid-template-columns:236px minmax(0,1fr) 268px;gap:var(--sp-4);align-items:start;padding:var(--sp-4) 0 var(--sp-6)}
+.rail{position:sticky;top:150px}
+.rail-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--sp-3);box-shadow:var(--shadow-sm);margin-bottom:var(--sp-3)}
+.rail-card h3{font-size:14px;letter-spacing:.5px;margin-bottom:var(--sp-2);color:var(--ink)}
+.rail-nav{list-style:none;margin:0;padding:0;font-size:14px}
+.rail-nav a{display:block;padding:6px 10px;border-radius:var(--radius-sm);color:var(--ink-soft);border-left:3px solid transparent}
+.rail-nav a:hover{background:var(--bg-alt);text-decoration:none}
+.rail-nav a.active{background:var(--bg-alt);border-left-color:var(--brand);color:var(--brand-deep);font-weight:600}
+.rail-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.rail-tags a{display:inline-block;font-size:12px;background:var(--bg-alt);border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--ink-soft)}
+.rail-tags a:hover{background:#fff;border-color:var(--brand);color:var(--brand-deep);text-decoration:none}
+.rail-list{list-style:none;margin:0;padding:0;font-size:13.5px}
+.rail-list li{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);color:var(--ink-soft)}
+.rail-list li:last-child{border-bottom:0}
+.rail-list time{color:var(--muted);font-size:12px;white-space:nowrap}
+
+/* 卡片网格 */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-3)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.card .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--bg-alt)}
+.card .thumb img{width:100%;height:100%;object-fit:cover}
+.card-body{padding:var(--sp-3);display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:16px;line-height:1.45}
+.card p{font-size:14px;color:var(--ink-soft);margin:0}
+.card-meta{display:flex;gap:10px;align-items:center;font-size:12px;color:var(--muted);margin-top:auto;flex-wrap:wrap}
+.pill{display:inline-block;font-size:12px;border-radius:999px;padding:2px 10px;background:var(--bg-alt);color:var(--brand-deep);border:1px solid #eed4dc}
+.pill.teal{background:var(--accent-soft);color:#1f524d;border-color:#c4ded9}
+.pill.sun{background:#fdf0da;color:#8a5a10;border-color:#f4dcb4}
+
+/* 紧凑列表 */
+.tight-list{list-style:none;margin:0;padding:0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden}
+.tight-list li{display:grid;grid-template-columns:96px minmax(0,1fr) auto;gap:var(--sp-3);align-items:baseline;padding:12px var(--sp-3);border-bottom:1px solid var(--line)}
+.tight-list li:last-child{border-bottom:0}
+.tight-list time{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tight-list .t-title{font-size:15px;color:var(--ink);font-weight:600}
+.tight-list .t-desc{font-size:13.5px;color:var(--ink-soft);display:block;font-weight:400;margin-top:2px}
+.tight-list .t-src{font-size:12px;color:var(--muted);white-space:nowrap}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-2)}
+.cat-item{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:12px 14px;transition:border-color .16s ease, transform .16s ease}
+.cat-item:hover{border-color:var(--brand);transform:translateY(-2px);text-decoration:none}
+.cat-item b{display:block;font-size:15px;color:var(--ink)}
+.cat-item span{font-size:12.5px;color:var(--muted)}
+
+/* 深度解析 */
+.article{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:var(--sp-4) var(--sp-5);box-shadow:var(--shadow-sm)}
+.article h3{font-size:19px;margin-top:var(--sp-4);margin-bottom:var(--sp-2);font-family:var(--f-serif)}
+.article h3:first-of-type{margin-top:0}
+.article p{font-size:15.5px}
+.article .judgment{border-left:4px solid var(--brand);background:var(--bg-alt);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:var(--sp-3);margin:var(--sp-3) 0;font-size:15.5px}
+.article .judgment strong{color:var(--brand-deep)}
+.fact-table{width:100%;border-collapse:collapse;font-size:14px;margin:var(--sp-3) 0}
+.fact-table caption{text-align:left;font-size:13px;color:var(--muted);padding-bottom:6px}
+.fact-table th,.fact-table td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.fact-table th{background:var(--bg-alt);font-weight:600;white-space:nowrap}
+.fact-table td{color:var(--ink-soft)}
+
+/* 步骤 */
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:grid;gap:var(--sp-2)}
+.steps li{counter-increment:s;display:grid;grid-template-columns:38px minmax(0,1fr);gap:var(--sp-3);background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px var(--sp-3)}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--f-serif);font-size:19px;font-weight:700;color:var(--brand);border-right:2px solid var(--line);display:flex;align-items:flex-start;justify-content:center}
+.steps b{display:block;font-size:15px;margin-bottom:2px}
+.steps p{font-size:14px;margin:0;color:var(--ink-soft)}
+
+/* 对照面板 */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-3)}
+.compare-panel{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:var(--radius-sm);padding:var(--sp-3)}
+.compare-panel.warn{border-top-color:var(--sun)}
+.compare-panel h3{font-size:15.5px;margin-bottom:var(--sp-2)}
+.compare-panel ul{margin:0;padding-left:1.1em;font-size:14px;color:var(--ink-soft)}
+.compare-panel li{margin-bottom:6px}
+
+/* FAQ */
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:0;margin-bottom:10px;box-shadow:var(--shadow-sm)}
+.faq summary{cursor:pointer;padding:13px var(--sp-3);font-weight:600;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:20px;color:var(--brand);line-height:1;flex-shrink:0}
+.faq details[open] summary::after{content:"−"}
+.faq .answer{padding:0 var(--sp-3) 14px;font-size:14.5px;color:var(--ink-soft);border-top:1px dashed var(--line);padding-top:10px;margin-top:0}
+
+/* 用户评论 */
+.comments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-3);list-style:none;margin:0;padding:0}
+.comment{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);padding:var(--sp-3);box-shadow:var(--shadow-sm)}
+.comment header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.comment .who{font-size:14px;font-weight:600}
+.comment .when{font-size:12px;color:var(--muted)}
+.comment p{font-size:14px;margin:0;color:var(--ink-soft)}
+.comment .target{font-size:12.5px;color:var(--muted);margin-top:8px;display:block}
+
+/* 时间线 / 榜单 */
+.rank{list-style:none;margin:0;padding:0;counter-reset:r;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
+.rank li{counter-increment:r;display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:var(--sp-3);align-items:center;padding:11px var(--sp-3);border-bottom:1px solid var(--line);font-size:14.5px}
+.rank li:last-child{border-bottom:0}
+.rank li::before{content:counter(r);font-family:var(--f-serif);font-size:16px;font-weight:700;color:var(--muted);text-align:center}
+.rank li.top::before{color:var(--brand)}
+.rank .num{font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* 引语 */
+.quote{background:linear-gradient(135deg,#fff 0%,#fdf1f4 100%);border:1px solid #f2d6de;border-radius:var(--radius);padding:var(--sp-4);position:relative}
+.quote::before{content:"“";position:absolute;left:16px;top:2px;font-family:var(--f-serif);font-size:64px;color:#f0c6d1;line-height:1}
+.quote blockquote{margin:0 0 10px;padding-left:34px;font-size:16px;font-family:var(--f-serif);color:var(--ink)}
+.quote figcaption{padding-left:34px;font-size:13px;color:var(--muted)}
+
+/* 推荐标签 */
+.rec-tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.rec-tags a{display:inline-block;padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-size:13.5px;color:var(--ink-soft)}
+.rec-tags a:hover{border-color:var(--brand);color:var(--brand-deep);background:var(--bg-alt);text-decoration:none}
+
+/* 页脚 */
+.site-footer{background:var(--ink);color:#d9cbd7;padding:var(--sp-6) 0 var(--sp-4);font-size:14px}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:var(--sp-4)}
+.site-footer h3{color:#fff;font-size:14px;letter-spacing:1px;margin-bottom:10px}
+.site-footer p{color:#b9a6b7;font-size:13.5px;margin-bottom:10px}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.footer-brand svg{width:34px;height:34px}
+.footer-brand b{color:#fff;font-family:var(--f-serif);font-size:17px}
+.footer-links{list-style:none;margin:0;padding:0;font-size:13.5px}
+.footer-links li{margin-bottom:6px}
+.footer-links a{color:#cbb9c9}
+.footer-links a:hover{color:#fff}
+.footer-note{border-top:1px solid #4a3348;margin-top:var(--sp-4);padding-top:var(--sp-3);display:flex;justify-content:space-between;gap:var(--sp-3);flex-wrap:wrap;font-size:12.5px;color:#a891a6}
+.footer-note .sample{max-width:52em}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:18px;bottom:20px;z-index:90;display:none;place-items:center;
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);
+  color:var(--brand-deep);font-size:13px;font-weight:700;cursor:pointer;box-shadow:var(--shadow-md);
+}
+.to-top.show{display:grid}
+.to-top:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+
+/* 响应式 */
+@media (max-width:1080px){
+  .layout{grid-template-columns:minmax(0,1fr) 260px}
+  .rail-left{display:none}
+  .hero-grid{grid-template-columns:1fr .8fr;gap:var(--sp-4)}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .footer-grid{grid-template-columns:1.4fr 1fr 1fr}
+}
+@media (max-width:860px){
+  .nav-toggle{display:inline-flex}
+  .main-nav{position:absolute;left:0;right:0;top:100%;background:var(--card);border-bottom:1px solid var(--line);box-shadow:var(--shadow-md);padding:8px var(--sp-3) 14px;display:none}
+  .main-nav.open{display:block}
+  .nav-list{flex-direction:column;gap:0}
+  .nav-list a{border-radius:var(--radius-sm);padding:10px 8px;font-size:15px}
+  .header-inner{flex-wrap:wrap;position:relative}
+  .search-box input{width:150px}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .rail{position:static}
+  .rail-right{order:3}
+  .hero-grid{grid-template-columns:1fr;padding:var(--sp-5) 0}
+  .hero-art{order:-1;min-height:0;max-width:420px}
+  .comments{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr}
+  .article{padding:var(--sp-4) var(--sp-3)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .search-feedback{left:auto;right:0;min-width:220px}
+}
+@media (max-width:560px){
+  body{font-size:15.5px}
+  .wrap{padding:0 var(--sp-3)}
+  .cards{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tight-list li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .tight-list .t-src{justify-self:start}
+  .hero-stats{gap:var(--sp-3)}
+  .hero-actions .btn{flex:1 1 auto;text-align:center}
+  .footer-grid{grid-template-columns:1fr}
+  .header-tools{width:100%;justify-content:space-between}
+  .search-box{flex:1}
+  .search-box input{width:100%}
+  .to-top{right:12px;bottom:14px}
+  .section{padding:var(--sp-5) 0;scroll-margin-top:170px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}
+  .card:hover,.cat-item:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到主要内容</a>
+
+<div class="sticky-top">
+  <div class="announce" role="region" aria-label="站内更新公告">
+    <div class="wrap">
+      <span class="tag">小小绘推特官网 · 更新</span>
+      <span><b>11月6日</b> 归档新增「万圣夜后台速写」4 张原图与推文原文摘录；<b>11月3日</b> 补入 10 月 28 日直播《线稿上色全过程》时间轴。</span>
+      <a href="/#latest">查看更新记录</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/#top" aria-label="小小绘推特官网 首页">
+        <svg viewBox="0 0 48 48" role="img" aria-hidden="true" focusable="false">
+          <rect x="2" y="2" width="44" height="44" rx="12" fill="#e0526b"/>
+          <path d="M11 33c5.5-13 17-18 26-18-3 7.5-7.5 18-26 18z" fill="#fff3ea"/>
+          <circle cx="30" cy="16.5" r="3.6" fill="#2b1c2c"/>
+          <circle cx="31.4" cy="15.4" r="1.2" fill="#fff3ea"/>
+          <path d="M12 35.5c6 1.6 13 1.4 18-1.4" stroke="#fff3ea" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>
+        <span class="brand-text">小小绘推特官网<small>TWITTER ARCHIVE · 作品与动态</small></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav">
+        <span class="bars" aria-hidden="true"></span>频道
+      </button>
+
+      <nav class="main-nav" id="mainNav" aria-label="主题频道导航">
+        <ul class="nav-list">
+          <li><a href="/#overview">领域概览</a></li>
+          <li><a href="/#picks">精选内容</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#channels">分类入口</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-tools">
+        <div class="search-box">
+          <label class="sr-only" for="siteSearch">站内查找作品、动态或日期</label>
+          <input id="siteSearch" type="search" placeholder="找作品 / 日期 / 标签" autocomplete="off">
+          <div class="search-feedback" id="searchFeedback" role="status" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="main">
+  <div id="top"></div>
+
+  <!-- 首屏 -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">推文归档 · 2026 年 10—11 月</p>
+        <h1 id="hero-title"><span class="brush">小小绘推特官网</span>，把每一条画稿和动态放回日期里</h1>
+        <p class="hero-lead">整理小小绘在推特账号 @xiaoxiaohui_art 发布的插画、草稿、转推与直播通告，按原帖时间、作品系列和工具链归档。每条记录保留原帖发布时间、配图数量与可核对的互动数据快照，方便按周回看创作节奏。</p>
+        <div class="hero-actions">
+          <a class="btn" href="/#picks">看本期精选 6 组</a>
+          <a class="btn ghost" href="/#latest">按日期查更新</a>
+        </div>
+        <ul class="hero-stats">
+          <li><b>186</b>归档推文条目</li>
+          <li><b>42</b>系列作品集</li>
+          <li><b>9</b>长尾检索标签</li>
+          <li><b>11-06</b>最近一次补录</li>
+        </ul>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 420 360" role="img" focusable="false">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#fff4ef"/><stop offset="1" stop-color="#f3d9e1"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#e0526b"/><stop offset="1" stop-color="#f2a53c"/>
+            </linearGradient>
+          </defs>
+          <rect x="18" y="16" width="384" height="328" rx="22" fill="url(#g1)" stroke="#e8c9d4"/>
+          <circle cx="316" cy="86" r="46" fill="#f7c6d3" opacity=".8"/>
+          <circle cx="316" cy="86" r="30" fill="#e0526b" opacity=".55"/>
+          <path d="M70 268c0-58 44-104 100-108 60-4 112 40 118 96z" fill="url(#g2)" opacity=".9"/>
+          <path d="M118 268c4-44 34-78 74-84 40-6 78 22 90 62z" fill="#fff4ef"/>
+          <circle cx="196" cy="140" r="34" fill="#2b1c2c"/>
+          <path d="M162 138c0-22 16-38 34-38s34 16 34 38c-10-8-22-12-34-12s-24 4-34 12z" fill="#4a2f4a"/>
+          <circle cx="184" cy="142" r="4.4" fill="#fff4ef"/>
+          <circle cx="208" cy="142" r="4.4" fill="#fff4ef"/>
+          <path d="M188 158c5 4 12 4 17 0" stroke="#fff4ef" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <rect x="56" y="44" width="118" height="12" rx="6" fill="#e0526b" opacity=".65"/>
+          <rect x="56" y="66" width="86" height="10" rx="5" fill="#2f6f6a" opacity=".45"/>
+          <rect x="56" y="300" width="150" height="8" rx="4" fill="#b02f4b" opacity=".35"/>
+          <g stroke="#2b1c2c" stroke-width="2.4" stroke-linecap="round" fill="none" opacity=".55">
+            <path d="M300 210l28-14M306 232l32 2M296 252l22 16"/>
+          </g>
+        </svg>
+        <div class="art-badge one"><b>11月6日 · 后台速写</b>4 张原图 · 推文 1 条</div>
+        <div class="art-badge two"><b>42 组</b>系列归档</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap layout">
+    <!-- 左侧常驻导航 -->
+    <aside class="rail rail-left" aria-label="栏目导航">
+      <div class="rail-card">
+        <h3>栏目导航</h3>
+        <ul class="rail-nav" id="railNav">
+          <li><a href="/#overview">领域概览</a></li>
+          <li><a href="/#picks">精选内容推荐</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#channels">分类入口</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#comments">用户评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#rank">本周榜单</a></li>
+          <li><a href="/#recs">相关推荐</a></li>
+        </ul>
+      </div>
+      <div class="rail-card">
+        <h3>检索标签</h3>
+        <ul class="rail-tags">
+          <li><a href="/#picks">万圣夜后台速写</a></li>
+          <li><a href="/#picks">线稿上色全过程</a></li>
+          <li><a href="/#latest">Procreate 笔刷预设</a></li>
+          <li><a href="/#deep">赛璐璐与厚涂差异</a></li>
+          <li><a href="/#guide">推特原图保存</a></li>
+          <li><a href="/#channels">连载分镜</a></li>
+          <li><a href="/#news">画集预售</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- 主内容 -->
+    <div class="main-col">
+
+      <!-- 领域概览 -->
+      <section class="section" id="overview" aria-labelledby="h-overview">
+        <div class="sec-head">
+          <span class="kicker">Overview</span>
+          <h2 id="h-overview">领域概览：一个插画账号的推文都包含什么</h2>
+          <p class="sec-desc">推特账号的产出通常分成四类：完成稿、过程稿、通告与转推。小小绘在 10 月的 63 条推文中，完成稿 21 条、过程稿 27 条、通告 9 条、转推与回复 6 条。完成稿多为 1—2 张竖构图；过程稿常带 3 张以上截图，含画布尺寸与笔刷名。</p>
+        </div>
+        <div class="compare">
+          <div class="compare-panel">
+            <h3>完成稿：可直接引用的成品信息</h3>
+            <ul>
+              <li>发布时附画布像素，如 3000×4000、350dpi，10 月 21 日《雨夜站台》为 2400×3200。</li>
+              <li>多数标注工具版本，10 月使用 Procreate 5.3.9 与 iPad Pro 11 英寸（M2）。</li>
+              <li>署名帖会写「转载注明出处」，二改需单独私信。</li>
+            </ul>
+          </div>
+          <div class="compare-panel warn">
+            <h3>过程稿：判断创作习惯的依据</h3>
+            <ul>
+              <li>线稿阶段常发 2—3 张对比，标注「草稿→清线」的耗时，10 月 14 日记录为 3 小时 40 分。</li>
+              <li>上色截图含图层命名，如「皮肤阴影」「布料高光」。</li>
+              <li>10 月 28 日直播回放的章节时间点，可与推文截图逐张对照。</li>
+            </ul>
+          </div>
+        </div>
+        <p style="margin-top:var(--sp-3);font-size:14px;color:var(--ink-soft)">通告类内容集中在 10 月 25 日至 11 月 2 日，涉及画集预售与同人展摊位号；转推多为同好作品与工具更新说明。四类内容的发布时间分布可用来判断账号活跃周期。</p>
+      </section>
+
+      <!-- 精选内容推荐 -->
+      <section class="section" id="picks" aria-labelledby="h-picks">
+        <div class="sec-head">
+          <span class="kicker">Picks</span>
+          <h2 id="h-picks">精选内容推荐：本期 6 组值得回看的作品</h2>
+          <p class="sec-desc">按原帖发布时间排序，卡片保留推文正文的关键句与配图数量。点开标签可回到左侧检索栏对应的作品名。</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="thumb"><img src="https://picsum.photos/seed/xiaoxiaohui-halloween/640/400" width="640" height="400" loading="lazy" alt="万圣夜后台速写中戴南瓜帽的角色半身草稿"></div>
+            <div class="card-body">
+              <span class="pill">万圣夜后台速写</span>
+              <h3>万圣夜后台速写：4 张原图与图层说明</h3>
+              <p>11 月 6 日 21:14 发布，配图 4 张。正文写「先在纸上打 3 版构图，最后选了侧身那张」。第 3 张截图可见「南瓜灯高光」独立图层。</p>
+              <div class="card-meta"><span>11-06</span><span>原创</span><span>4 图</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="thumb"><img src="https://picsum.photos/seed/xiaoxiaohui-rainplatform/640/400" width="640" height="400" loading="lazy" alt="雨夜站台插画中撑伞角色与霓虹灯牌"></div>
+            <div class="card-body">
+              <span class="pill">雨夜站台</span>
+              <h3>雨夜站台：2400×3200 竖构图完成稿</h3>
+              <p>10 月 21 日 19:02 发布。配文说明雨丝用「喷枪+动感模糊」，霓虹灯牌逐字重绘。评论区有人问笔刷，作者回复在置顶链接的 07 号预设。</p>
+              <div class="card-meta"><span>10-21</span><span>完成稿</span><span>1 图</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="thumb"><img src="https://picsum.photos/seed/xiaoxiaohui-lineart/640/400" width="640" height="400" loading="lazy" alt="线稿清线前后对比的局部截图"></div>
+            <div class="card-body">
+              <span class="pill teal">线稿上色全过程</span>
+              <h3>线稿上色全过程：3 小时 40 分的清线记录</h3>
+              <p>10 月 14 日 22:35 发布 3 张对比图，标注「草稿 1 小时 10 分，清线 2 小时 30 分」。同帖附 6B 铅笔与 0.3 针管笔的笔压差异说明。</p>
+              <div class="card-meta"><span>10-14</span><span>过程稿</span><span>3 图</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="thumb"><img src="https://picsum.photos/seed/xiaoxiaohui-brush/640/400" width="640" height="400" loading="lazy" alt="Procreate 笔刷预设列表面板截图"></div>
+            <div class="card-body">
+              <span class="pill teal">Procreate 笔刷预设</span>
+              <h3>Procreate 笔刷预设 07 号：喷枪与颗粒组合</h3>
+              <p>11 月 1 日 12:08 发布。列出 3 组自调参数：喷枪流量 42%、颗粒 18%、混合模式正片叠底。说明只适用于 300dpi 以上画布。</p>
+              <div class="card-meta"><span>11-01</span><span>工具</span><span>2 图</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="thumb"><img src="https://picsum.photos/seed/xiaoxiaohui-comic/640/400" width="640" height="400" loading="lazy" alt="连载分镜草稿中四格页面布局"></div>
+            <div class="card-body">
+              <span class="pill sun">连载分镜</span>
+              <h3>连载分镜第 5 话：四格页与留白比例</h3>
+              <p>10 月 30 日 18:40 发布 5 格分镜草稿，标注「对话框占页 22%」，附一张用错留白比例的废稿作反例。</p>
+              <div class="card-meta"><span>10-30</span><span>连载</span><span>5 图</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="thumb"><img src="https://picsum.photos/seed/xiaoxiaohui-book/640/400" width="640" height="400" loading="lazy" alt="画集预售页封面与摊位号信息图"></div>
+            <div class="card-body">
+              <span class="pill sun">画集预售</span>
+              <h3>画集预售：A5 全彩 96 页与摊位号 B-17</h3>
+              <p>10 月 25 日 10:30 发布。预售期 10 月 25 日至 11 月 15 日，附 8 张内页预览。说明现场自提在同人展 B-17 摊位。</p>
+              <div class="card-meta"><span>10-25</span><span>通告</span><span>8 图</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 最新更新 -->
+      <section class="section" id="latest" aria-labelledby="h-latest">
+        <div class="sec-head">
+          <span class="kicker">Latest</span>
+          <h2 id="h-latest">最新更新：按日期补录的推文记录</h2>
+          <p class="sec-desc">左列为推文发布时间，右列注明补录来源。带「原文摘录」的条目可在深度解析里看到逐句对照。</p>
+        </div>
+        <ul class="tight-list">
+          <li>
+            <time datetime="2026-11-07">11月7日 09:20</time>
+            <span><span class="t-title">万圣夜后台速写配色表补入</span><span class="t-desc">新增 6 个十六进制色值与对应图层名，来源：原帖第 4 张截图的放大说明。</span></span>
+            <span class="t-src">补录</span>
+          </li>
+          <li>
+            <time datetime="2026-11-06">11月6日 21:14</time>
+            <span><span class="t-title">万圣夜后台速写 4 张原图</span><span class="t-desc">正文原文「先在纸上打 3 版构图」，配图按草稿、清线、底色、成稿排列。</span></span>
+            <span class="t-src">原文摘录</span>
+          </li>
+          <li>
+            <time datetime="2026-11-03">11月3日 16:45</time>
+            <span><span class="t-title">10 月 28 日直播回放章节</span><span class="t-desc">补入清线、上色、导出三段的时间点：00:12、00:47、01:58。</span></span>
+            <span class="t-src">回放整理</span>
+          </li>
+          <li>
+            <time datetime="2026-11-01">11月1日 12:08</time>
+            <span><span class="t-title">Procreate 笔刷预设 07 号</span><span class="t-desc">喷枪流量 42%、颗粒 18%，作者注明「只适合 300dpi 以上」。</span></span>
+            <span class="t-src">原文摘录</span>
+          </li>
+          <li>
+            <time datetime="2026-10-30">10月30日 18:40</time>
+            <span><span class="t-title">连载分镜第 5 话</span><span class="t-desc">5 格草稿，对话框占比 22%，附一张留白比例错误的废稿。</span></span>
+            <span class="t-src">原文摘录</span>
+          </li>
+          <li>
+            <time datetime="2026-10-28">10月28日 20:00</time>
+            <span><span class="t-title">直播《线稿上色全过程》</span><span class="t-desc">时长 2 小时 06 分，在线峰值 1,284 人，导出前临时改了布料高光。</span></span>
+            <span class="t-src">直播记录</span>
+          </li>
+          <li>
+            <time datetime="2026-10-25">10月25日 10:30</time>
+            <span><span class="t-title">画集预售开启</span><span class="t-desc">A5 全彩 96 页，预售至 11 月 15 日，现场自提在同人展 B-17。</span></span>
+            <span class="t-src">原文摘录</span>
+          </li>
+          <li>
+            <time datetime="2026-10-21">10月21日 19:02</time>
+            <span><span class="t-title">雨夜站台完成稿</span><span class="t-desc">2400×3200，350dpi。雨丝用喷枪加动感模糊，灯牌逐字重绘。</span></span>
+            <span class="t-src">原文摘录</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 分类入口 -->
+      <section class="section" id="channels" aria-labelledby="h-channels">
+        <div class="sec-head">
+          <span class="kicker">Channels</span>
+          <h2 id="h-channels">分类入口：按作品类型与用途拆开的 12 个频道</h2>
+          <p class="sec-desc">频道名沿用搜索时最常输入的词。每条下面标注该频道当前的条目数与更新状态。</p>
+        </div>
+        <div class="cat-grid">
+          <a class="cat-item" href="/#picks"><b>万圣夜后台速写</b><span>12 条 · 11/06 更新</span></a>
+          <a class="cat-item" href="/#picks"><b>雨夜站台</b><span>7 条 · 10/21 更新</span></a>
+          <a class="cat-item" href="/#picks"><b>线稿上色全过程</b><span>18 条 · 10/28 更新</span></a>
+          <a class="cat-item" href="/#picks"><b>Procreate 笔刷预设</b><span>9 条 · 11/01 更新</span></a>
+          <a class="cat-item" href="/#channels"><b>连载分镜</b><span>14 条 · 10/30 更新</span></a>
+          <a class="cat-item" href="/#news"><b>画集预售</b><span>5 条 · 10/25 更新</span></a>
+          <a class="cat-item" href="/#deep"><b>赛璐璐与厚涂差异</b><span>6 条 · 10/19 更新</span></a>
+          <a class="cat-item" href="/#guide"><b>推特原图保存</b><span>4 条 · 10/12 更新</span></a>
+          <a class="cat-item" href="/#picks"><b>角色设定草图</b><span>11 条 · 10/17 更新</span></a>
+          <a class="cat-item" href="/#picks"><b>同人展摊位与自提</b><span>3 条 · 10/25 更新</span></a>
+          <a class="cat-item" href="/#latest"><b>直播回放章节</b><span>8 条 · 11/03 更新</span></a>
+          <a class="cat-item" href="/#recs"><b>转载授权说明</b><span>2 条 · 10/24 更新</span></a>
+        </div>
+      </section>
+
+      <!-- 深度解析 -->
+      <section class="section" id="deep" aria-labelledby="h-deep">
+        <div class="sec-head">
+          <span class="kicker">Deep Read</span>
+          <h2 id="h-deep">深度解析：10 月的推进速度慢在分镜，不在上色</h2>
+        </div>
+        <article class="article">
+          <p>把 10 月 1 日至 11 月 6 日的推文按阶段拆开，会看到一个与直觉不同的分布：上色帖平均间隔 2.1 天，分镜帖平均间隔 4.6 天。完成稿变少的主因落在分镜与构图，而非很多人以为的上色耗时。</p>
+          <div class="judgment"><strong>可核对的判断：</strong>《连载分镜》第 4 话与第 5 话相隔 11 天（10 月 19 日→10 月 30 日），其间发布的上色过程帖有 4 条。分镜段拉长，上色段反而被切得更碎。</div>
+
+          <h3>案例时间线：三段时间差怎么读</h3>
+          <table class="fact-table">
+            <caption>2026 年 10 月—11 月 6 日，按推文原文标注时间整理</caption>
+            <thead><tr><th>阶段</th><th>起止时间</th><th>间隔</th><th>对应推文</th></tr></thead>
+            <tbody>
+              <tr><td>第 4 话分镜</td><td>10 月 19 日 17:26</td><td>—</td><td>4 格草稿，标注「对话框占页 19%」</td></tr>
+              <tr><td>上色过程</td><td>10 月 21 日—10 月 27 日</td><td>2 天 / 条</td><td>4 条，含雨夜站台与布料高光</td></tr>
+              <tr><td>第 5 话分镜</td><td>10 月 30 日 18:40</td><td>距第 4 话 11 天</td><td>5 格草稿，附留白比例废稿</td></tr>
+              <tr><td>直播清线</td><td>10 月 28 日 20:00</td><td>距第 5 话 -2 天</td><td>时长 2 小时 06 分，峰值 1,284 人</td></tr>
+            </tbody>
+          </table>
+          <p>这张表的用处是分开「没发」与「没画」。10 月 22 日至 10 月 24 日没有分镜帖，但 10 月 24 日的回复里提到「在改第 5 话的格子」，说明推进在继续，只是没有公开截图。把这段空白算成停滞，会误判创作节奏。</p>
+
+          <h3>说法差异：上色快，不等于完成快</h3>
+          <p>11 月 1 日的笔刷帖写明，喷枪与颗粒预设把皮肤铺色从 50 分钟压到 28 分钟。这组数字只覆盖铺色一个环节。同帖没有提线稿与分镜，把它当成整体提速的证据，结论会偏。另一个可对照的数据点在 10 月 14 日：草稿 1 小时 10 分、清线 2 小时 30 分，清线仍是单张耗时最长的环节。</p>
+          <div class="judgment"><strong>反方意见也成立：</strong>若只看完成稿数量，10 月 21 日后有 6 张成品，高于 10 月上旬的 3 张，说明整月并非减速。分歧在于统计口径——按张数算在加速，按阶段间隔算在分镜处卡住。两种说法都能用原帖时间戳复核，不必争谁对。</div>
+
+          <h3>规则前后变化：署名与授权的两版措辞</h3>
+          <p>10 月 24 日之前的推文写「转载注明出处即可」，10 月 24 日之后改为「转载注明出处，二改与商用请先私信」。改动发生在画集预售前一天，与商业用途的边界有关。《雨夜站台》在 10 月 21 日发布时用的是旧措辞，归档时需按原帖保留，不能追改成新规则——这是归档与作者现声明之间的已知差异，读者引用时应以原帖截图为准。</p>
+          <p>还有一处属于推测，需要单独标出：10 月 28 日直播里临时改布料高光，可能是为印刷色差做准备，但推文与直播说明都没有明说。把它写成确定原因就超出了材料范围。</p>
+
+          <h3>可核对结构：一条推文的四个字段</h3>
+          <p>判断一条归档是否可信，可固定看四栏：发布时间戳、配图数量、正文原句、互动数据快照时间。以 11 月 6 日《万圣夜后台速写》为例，时间戳 21:14、配图 4 张、原句「先在纸上打 3 版构图」、数据快照取 11 月 7 日 09:20。四栏齐了，条目就能被复核；缺互动数据快照的条目，只记内容不作热度判断。</p>
+        </article>
+      </section>
+
+      <!-- 体验指南 -->
+      <section class="section" id="guide" aria-labelledby="h-guide">
+        <div class="sec-head">
+          <span class="kicker">Guide</span>
+          <h2 id="h-guide">体验指南：五步把一条推文查清楚</h2>
+          <p class="sec-desc">面向第一次按日期回看作品的人。步骤按实际操作顺序排列，每步给出可核对的落点。</p>
+        </div>
+        <ol class="steps">
+          <li><div><b>先定日期，不先定作品</b><p>从「最新更新」挑一个时间点，例如 10 月 21 日 19:02，再顺藤找同周的过程稿。先看日期能避免把旧稿当成新作。</p></div></li>
+          <li><div><b>核对配图数量与画布参数</b><p>《雨夜站台》标 2400×3200、350dpi，若某转载页写 1080×1440，说明被压缩过，颜色与线条会失真。</p></div></li>
+          <li><div><b>区分原文与转述</b><p>正文引号内的句子可当原文；没有引号、只写「作者说想改构图」的，属于转述，强度不同。</p></div></li>
+          <li><div><b>查授权措辞的时点</b><p>10 月 24 日前后两版措辞不同。商用前先看目标作品的原帖日期，再看是否有后续补充说明。</p></div></li>
+          <li><div><b>保存原图而不是截图</b><p>推特原图保存要在图片上右键取原始尺寸，手机端长按另存。截图会丢掉 dpi 信息，后续做对比时没有基准。</p></div></li>
+        </ol>
+        <figure class="quote" style="margin-top:var(--sp-4)">
+          <blockquote>「线稿阶段别急着上色，先把肩膀和手腕的角度定死，后面能省一小时。」</blockquote>
+          <figcaption>——10 月 14 日推文回复中的原句，针对清线阶段的提问</figcaption>
+        </figure>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section" id="faq" aria-labelledby="h-faq">
+        <div class="sec-head">
+          <span class="kicker">FAQ</span>
+          <h2 id="h-faq">常见问题：归档内容与使用边界</h2>
+          <p class="sec-desc">答案以作品与推文本身为主语。涉及授权的回答只描述原帖措辞，不替代作者本人的最新声明。</p>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>万圣夜后台速写的 4 张图分别是什么阶段？</summary>
+            <div class="answer">按 11 月 6 日原帖顺序，第 1 张是纸上草稿 3 版中的一版，第 2 张清线，第 3 张底色与高光分层，第 4 张成稿。第 3 张能看到「南瓜灯高光」独立图层，这是判断上色顺序最直接的一处证据。</div>
+          </details>
+          <details>
+            <summary>雨夜站台的雨丝是怎么做的？</summary>
+            <div class="answer">原帖写明用喷枪配合动感模糊，没有使用贴图素材。灯牌文字逐字重绘，避免字体版权问题。这两点在 10 月 21 日推文正文与后续回复里都有提及。</div>
+          </details>
+          <details>
+            <summary>Procreate 笔刷预设 07 号适合什么画布？</summary>
+            <div class="answer">作者注明只适合 300dpi 以上的画布，喷枪流量 42%、颗粒 18%。低于这个分辨率时颗粒会糊成一片，铺色边缘也压不住，实际效果与原帖示例差距明显。</div>
+          </details>
+          <details>
+            <summary>转载和商用分别要怎么做？</summary>
+            <div class="answer">10 月 24 日之后的作品，转载需注明出处，二改与商用要先私信确认；此前发布的作品，原帖只写了注明出处。跨日期引用时按作品自身发布日期判断，不用新规则追改旧帖。</div>
+          </details>
+          <details>
+            <summary>画集预售到什么时候，现场怎么取？</summary>
+            <div class="answer">预售期 10 月 25 日至 11 月 15 日，A5 全彩 96 页。现场自提在同人展 B-17 摊位，需出示预售凭证。摊位号以 10 月 25 日推文所附信息图为准。</div>
+          </details>
+          <details>
+            <summary>连载分镜第 5 话为什么隔了 11 天才发？</summary>
+            <div class="answer">推文没有给出解释。可核对的是 10 月 24 日回复里提到「在改第 5 话的格子」，说明期间有推进但未公开截图。把它归因为某一个具体原因（例如接稿）属于推测，材料里没有依据。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 用户评论 -->
+      <section class="section" id="comments" aria-labelledby="h-comments">
+        <div class="sec-head">
+          <span class="kicker">Voices</span>
+          <h2 id="h-comments">用户评论：读者对具体条目的反馈</h2>
+          <p class="sec-desc">以下为示例评论区，内容围绕具体作品与条目展开，语气包含肯定、疑问与吐槽。</p>
+        </div>
+        <ul class="comments">
+          <li class="comment">
+            <header><span class="avatar" style="background:#e0526b">林</span><div><div class="who">林间速写</div><div class="when">11月7日 10:02</div></div></header>
+            <p>万圣夜那张第 3 图的图层名太有用了，「南瓜灯高光」单独一层，我照着拆了一遍才明白为什么灯看起来是发光的。</p>
+            <span class="target">指向：万圣夜后台速写 · 第 3 张截图</span>
+          </li>
+          <li class="comment">
+            <header><span class="avatar" style="background:#2f6f6a">阿</span><div><div class="who">阿棠今天画画了吗</div><div class="when">11月6日 23:41</div></div></header>
+            <p>说句实话，4 张图里草稿只放了 1 版，另外两版没放出来有点可惜。想看被放弃的构图长什么样。</p>
+            <span class="target">指向：万圣夜后台速写 · 配图构成</span>
+          </li>
+          <li class="comment">
+            <header><span class="avatar" style="background:#f2a53c">周</span><div><div class="who">周末补番</div><div class="when">11月2日 14:20</div></div></header>
+            <p>07 号笔刷我下了，但按 42% 流量在我 150dpi 的草稿上完全不行，颗粒全糊。后来改到 300dpi 才接近原图效果，作者那条说明不是客套话。</p>
+            <span class="target">指向：Procreate 笔刷预设 07 号</span>
+          </li>
+          <li class="comment">
+            <header><span class="avatar" style="background:#4a2f4a">沉</span><div><div class="who">沉舟侧畔</div><div class="when">10月31日 09:15</div></div></header>
+            <p>第 5 话第 2 格的对话框确实有点挤。作者自己放了废稿作对比，反而说明知道问题在哪，这比硬说没问题好。</p>
+            <span class="target">指向：连载分镜第 5 话 · 留白比例</span>
+          </li>
+          <li class="comment">
+            <header><span class="avatar" style="background:#b02f4b">橘</span><div><div class="who">橘子汽水半糖</div><div class="when">10月29日 21:37</div></div></header>
+            <p>直播看了后半段，布料高光那块改了三次。回放章节写 00:47 进上色，实际我这边看到 00:52 才开始铺色，差 5 分钟，不影响使用但可以标得更细。</p>
+            <span class="target">指向：10月28日直播回放 · 章节时间点</span>
+          </li>
+          <li class="comment">
+            <header><span class="avatar" style="background:#8a7689">南</span><div><div class="who">南风知我意</div><div class="when">10月26日 11:08</div></div></header>
+            <p>画集内页预览那 8 张里有两张和 9 月的推文重复，预售页没说明是收录旧作还是重绘。这点希望补一句，不然不好判断值不值。</p>
+            <span class="target">指向：画集预售 · 内页预览</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 相关资讯 -->
+      <section class="section" id="news" aria-labelledby="h-news">
+        <div class="sec-head">
+          <span class="kicker">News</span>
+          <h2 id="h-news">相关资讯：工具、展会与授权口径</h2>
+          <p class="sec-desc">每条只保留一条新事实，日期均在 10 月 9 日至 11 月 7 日之间，标出来源类型。</p>
+        </div>
+        <ul class="tight-list">
+          <li>
+            <time datetime="2026-11-05">11月5日</time>
+            <span><span class="t-title">Procreate 5.3.9 小版本更新</span><span class="t-desc">笔刷导入路径调整，07 号预设需重新导入一次才能在「最近」里显示。</span></span>
+            <span class="t-src">工具说明</span>
+          </li>
+          <li>
+            <time datetime="2026-10-24">10月24日</time>
+            <span><span class="t-title">授权措辞改为两段式</span><span class="t-desc">从「注明出处即可」扩到「注明出处 + 二改商用先私信」，同日发布在账号置顶。</span></span>
+            <span class="t-src">原帖</span>
+          </li>
+          <li>
+            <time datetime="2026-10-23">10月23日</time>
+            <span><span class="t-title">同人展摊位图公布</span><span class="t-desc">B-17 摊位靠东侧入口，主办方公布的布展图与预售页摊位号一致。</span></span>
+            <span class="t-src">主办方公告</span>
+          </li>
+          <li>
+            <time datetime="2026-10-16">10月16日</time>
+            <span><span class="t-title">雨夜站台的霓虹灯牌参考来源</span><span class="t-desc">作者回复提到参考了三条街道实拍照片，未使用字体库，灯牌文字为手绘。</span></span>
+            <span class="t-src">回复</span>
+          </li>
+          <li>
+            <time datetime="2026-10-12">10月12日</time>
+            <span><span class="t-title">推特原图保存方法更新</span><span class="t-desc">网页端右键菜单改版后，「在新标签页打开图片」后再存原图，可保留原始尺寸。</span></span>
+            <span class="t-src">平台变化</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 榜单 -->
+      <section class="section" id="rank" aria-labelledby="h-rank">
+        <div class="sec-head">
+          <span class="kicker">Rank</span>
+          <h2 id="h-rank">本周榜单：按互动数据快照排序的 6 条推文</h2>
+          <p class="sec-desc">数据快照统一取 11 月 7 日 09:20。排名只反映该时点的互动量，不代表作品质量排序。</p>
+        </div>
+        <ol class="rank">
+          <li class="top"><span><b>万圣夜后台速写</b> · 4 图，原句「先在纸上打 3 版构图」</span><span class="num">赞 4,812 / 转 963</span></li>
+          <li class="top"><span><b>雨夜站台</b> · 2400×3200 完成稿</span><span class="num">赞 3,907 / 转 721</span></li>
+          <li><span><b>Procreate 笔刷预设 07 号</b> · 参数公开</span><span class="num">赞 2,644 / 转 1,105</span></li>
+          <li><span><b>连载分镜第 5 话</b> · 5 格 + 废稿对比</span><span class="num">赞 1,980 / 转 402</span></li>
+          <li><span><b>线稿上色全过程</b> · 3 小时 40 分记录</span><span class="num">赞 1,736 / 转 388</span></li>
+          <li><span><b>画集预售</b> · 内页预览 8 张</span><span class="num">赞 1,244 / 转 610</span></li>
+        </ol>
+      </section>
+
+      <!-- 相关推荐 -->
+      <section class="section" id="recs" aria-labelledby="h-recs">
+        <div class="sec-head">
+          <span class="kicker">Related</span>
+          <h2 id="h-recs">相关推荐：按检索词延伸的入口</h2>
+          <p class="sec-desc">每个标签对应站内已有的条目集合，点击跳到对应栏目，不指向站外。</p>
+        </div>
+        <ul class="rec-tags">
+          <li><a href="/#picks">万圣夜后台速写配色</a></li>
+          <li><a href="/#picks">雨夜站台雨丝笔刷</a></li>
+          <li><a href="/#guide">线稿清线耗时记录</a></li>
+          <li><a href="/#picks">Procreate 颗粒笔刷参数</a></li>
+          <li><a href="/#channels">连载分镜留白比例</a></li>
+          <li><a href="/#deep">赛璐璐与厚涂差异</a></li>
+          <li><a href="/#news">画集预售 B-17 摊位</a></li>
+          <li><a href="/#guide">推特原图保存方法</a></li>
+          <li><a href="/#recs">二改商用授权口径</a></li>
+          <li><a href="/#latest">直播回放章节时间点</a></li>
+        </ul>
+      </section>
+
+      <p style="font-size:13px;color:var(--muted);padding:var(--sp-4) 0 0">页脚更新时间 11 月 7 日 09:20，对应「最新更新」首条与「本周榜单」的数据快照。</p>
+    </div>
+
+    <!-- 右侧栏 -->
+    <aside class="rail rail-right" aria-label="侧栏信息">
+      <div class="rail-card">
+        <h3>近 7 天动态</h3>
+        <ul class="rail-list">
+          <li><span>万圣夜后台速写补色值</span><time datetime="2026-11-07">11-07</time></li>
+          <li><span>万圣夜 4 图原帖归档</span><time datetime="2026-11-06">11-06</time></li>
+          <li><span>直播回放章节补录</span><time datetime="2026-11-03">11-03</time></li>
+          <li><span>07 号笔刷预设整理</span><time datetime="2026-11-01">11-01</time></li>
+          <li><span>第 5 话分镜入档</span><time datetime="2026-10-30">10-30</time></li>
+        </ul>
+      </div>
+      <div class="rail-card">
+        <h3>本期检索词</h3>
+        <ul class="rail-tags">
+          <li><a href="/#picks">南瓜灯高光图层</a></li>
+          <li><a href="/#picks">喷枪动感模糊雨丝</a></li>
+          <li><a href="/#deep">清线耗时占比</a></li>
+          <li><a href="/#guide">300dpi 笔刷适配</a></li>
+          <li><a href="/#news">置顶授权措辞</a></li>
+        </ul>
+      </div>
+      <div class="rail-card">
+        <h3>归档说明</h3>
+        <p style="font-size:13px;color:var(--ink-soft);margin:0">条目时间以推文原帖为准，互动数据为快照，非实时。示例数据用于说明归档结构，具体数值以原帖截图核对。</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 48 48" role="img" aria-hidden="true" focusable="false">
+            <rect x="2" y="2" width="44" height="44" rx="12" fill="#e0526b"/>
+            <path d="M11 33c5.5-13 17-18 26-18-3 7.5-7.5 18-26 18z" fill="#fff3ea"/>
+            <circle cx="30" cy="16.5" r="3.6" fill="#2b1c2c"/>
+          </svg>
+          <b>小小绘推特官网</b>
+        </div>
+        <p>定位：按日期与系列整理插画账号的公开推文，供检索、比对与引用核对。</p>
+      </div>
+      <div>
+        <h3>内容频道</h3>
+        <ul class="footer-links">
+          <li><a href="/#overview">领域概览</a></li>
+          <li><a href="/#picks">精选内容推荐</a></li>
+          <li><a href="/#latest">最新更新</a></li>
+          <li><a href="/#channels">分类入口</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>阅读与工具</h3>
+        <ul class="footer-links">
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#faq">常见问题</a></li>
+          <li><a href="/#recs">相关推荐</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>互动与资讯</h3>
+        <ul class="footer-links">
+          <li><a href="/#comments">用户评论</a></li>
+          <li><a href="/#news">相关资讯</a></li>
+          <li><a href="/#rank">本周榜单</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-note">
+      <p class="sample">示例数据说明：页面中的推文数量、互动数据、日期与预售信息均为结构示例，用于展示归档方式；实际内容请以原帖截图与作者本人声明为准。</p>
+      <p>© 2026 小小绘推特官网 · 归档整理</p>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="回到页面顶部">↑</button>
+
+<script>
+(function(){
+  var navToggle = document.getElementById('navToggle');
+  var mainNav = document.getElementById('mainNav');
+  navToggle.addEventListener('click', function(){
+    var open = mainNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mainNav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A' && window.innerWidth <= 860){
+      mainNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded','false');
+    }
+  });
+
+  var toTop = document.getElementById('toTop');
+  function onScroll(){
+    if(window.scrollY > 480){ toTop.classList.add('show'); }
+    else { toTop.classList.remove('show'); }
+    highlightNav();
+  }
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  var railLinks = Array.prototype.slice.call(document.querySelectorAll('#railNav a'));
+  var sections = railLinks.map(function(a){
+    var id = a.getAttribute('href').replace('/#','');
+    return document.getElementById(id);
+  }).filter(Boolean);
+  function highlightNav(){
+    var pos = window.scrollY + 180;
+    var current = null;
+    sections.forEach(function(s){
+      if(s.offsetTop <= pos){ current = s.id; }
+    });
+    railLinks.forEach(function(a){
+      var id = a.getAttribute('href').replace('/#','');
+      a.classList.toggle('active', id === current);
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // 本地查找
+  var input = document.getElementById('siteSearch');
+  var fb = document.getElementById('searchFeedback');
+  var searchable = [
+    {t:'万圣夜后台速写', tag:'精选内容', href:'/#picks'},
+    {t:'雨夜站台', tag:'精选内容', href:'/#picks'},
+    {t:'线稿上色全过程', tag:'精选内容', href:'/#picks'},
+    {t:'Procreate 笔刷预设 07 号', tag:'精选内容', href:'/#picks'},
+    {t:'连载分镜第 5 话', tag:'精选内容', href:'/#picks'},
+    {t:'画集预售', tag:'相关资讯', href:'/#news'},
+    {t:'直播回放章节', tag:'最新更新', href:'/#latest'},
+    {t:'推文归档时间线', tag:'深度解析', href:'/#deep'},
+    {t:'Procreate 5.3.9 更新', tag:'相关资讯', href:'/#news'},
+    {t:'本周榜单', tag:'榜单', href:'/#rank'},
+    {t:'授权措辞', tag:'常见问题', href:'/#faq'},
+    {t:'用户评论', tag:'评论', href:'/#comments'},
+    {t:'10月21日', tag:'最新更新', href:'/#latest'},
+    {t:'10月28日', tag:'最新更新', href:'/#latest'},
+    {t:'11月6日', tag:'最新更新', href:'/#latest'},
+    {t:'推特原图保存', tag:'体验指南', href:'/#guide'}
+  ];
+  input.addEventListener('input', function(){
+    var q = input.value.trim();
+    if(!q){ fb.classList.remove('show'); fb.innerHTML=''; return; }
+    var lower = q.toLowerCase();
+    var hits = searchable.filter(function(item){
+      return item.t.toLowerCase().indexOf(lower) !== -1 || item.tag.toLowerCase().indexOf(lower) !== -1;
+    }).slice(0,6);
+    if(hits.length === 0){
+      fb.innerHTML = '<div>没有找到与「'+q.replace(/[<>&]/g,'')+'」相关的条目，可试试「雨夜站台」「直播回放」或具体日期。</div>';
+    } else {
+      fb.innerHTML = hits.map(function(h){
+        return '<div style="padding:4px 0;border-bottom:1px dashed #e8dde4"><a href="'+h.href+'">'+h.t+'</a> <span style="color:#8a7689;font-size:12px">· '+h.tag+'</span></div>';
+      }).join('').replace(/<div style="padding:4px 0;border-bottom:1px dashed #e8dde4">([\s\S]*?)<\/div>/g, function(m){return m;});
+      fb.innerHTML = fb.innerHTML.replace(/border-bottom:1px dashed #e8dde4/g,'border-bottom:1px dashed #e8dde4');
+    }
+    fb.classList.add('show');
+  });
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ fb.classList.remove('show'); input.blur(); }
+    if(e.key === 'Enter'){
+      e.preventDefault();
+      var first = fb.querySelector('a');
+      if(first){ first.click(); fb.classList.remove('show'); }
+    }
+  });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.search-box')){ fb.classList.remove('show'); }
+  });
+
+  // 平滑滚动预留吸顶偏移
+  document.querySelectorAll('a[href^="/#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href').slice(2);
+      var el = document.getElementById(id);
+      if(!el) return;
+      e.preventDefault();
+      var top = el.getBoundingClientRect().top + window.scrollY - 140;
+      window.scrollTo({top: top, behavior:'smooth'});
+      history.replaceState(null,'','#'+id);
+    });
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"小小绘推特官网",
+  "description":"整理小小绘在推特发布的插画、草稿与动态，按日期与作品系列归档，提供检索、深度解析与体验指南。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"万圣夜后台速写的 4 张图分别是什么阶段？","acceptedAnswer":{"@type":"Answer","text":"按 11 月 6 日原帖顺序，第 1 张是纸上草稿 3 版中的一版，第 2 张清线，第 3 张底色与高光分层，第 4 张成稿。"}},
+    {"@type":"Question","name":"雨夜站台的雨丝是怎么做的？","acceptedAnswer":{"@type":"Answer","text":"原帖写明用喷枪配合动感模糊，没有使用贴图素材；灯牌文字逐字重绘。"}},
+    {"@type":"Question","name":"Procreate 笔刷预设 07 号适合什么画布？","acceptedAnswer":{"@type":"Answer","text":"作者注明只适合 300dpi 以上的画布，喷枪流量 42%、颗粒 18%。"}},
+    {"@type":"Question","name":"转载和商用分别要怎么做？","acceptedAnswer":{"@type":"Answer","text":"10 月 24 日之后的作品转载需注明出处，二改与商用要先私信确认；此前发布的作品原帖只写了注明出处。"}},
+    {"@type":"Question","name":"画集预售到什么时候，现场怎么取？","acceptedAnswer":{"@type":"Answer","text":"预售期 10 月 25 日至 11 月 15 日，A5 全彩 96 页；现场自提在同人展 B-17 摊位。"}},
+    {"@type":"Question","name":"连载分镜第 5 话为什么隔了 11 天才发？","acceptedAnswer":{"@type":"Answer","text":"推文没有给出解释；10 月 24 日回复提到在改第 5 话的格子，说明期间有推进但未公开截图。"}}
+  ]
+}
+</script>
+</body>
+  </html>
